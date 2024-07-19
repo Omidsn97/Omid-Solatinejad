@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My First Website</title>
+    <style>    
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+            border: 5px solid black;
+            box-sizing: border-box;
+            position: relative;
+            font-family: 'Times New Roman', Times, serif,
+sans-serif;
+            background-color: #ffd0b0;
+        }
+        body::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            bottom: 20px;
+            left: 20px;
+            border: 2px solid black;
+            pointer-events: none;
+        }
+        p {
+            font-size: 25px;
+            line-height: 1.5;
+            margin: 0 auto;
+            width: 80%;
+            max-width: 1000px;
+        }
+        h1 {
+            color: rgb(0, 0, 0);
+            text-align: center;
+            border: 2px solid black;
+            padding: 10px;
+            display: inline-block;
+            font-size: 40px;
+        }
+        .profile-picture {
+           display: block;
+           position: absolute;
+           top: 120px;
+           left: 50%;
+           transform: translateX(-50%);
+           width: 100px;   
+           height: 100px;
+           border-radius: 50%;
+           border: 1px solid black; 
+        }
+        .footer-text {
+            position: absolute;
+            bottom: 75px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 16px;
+            color: black;
+            font-weight: bold;
+        }
+        .footer-link {
+            display: inline-block;
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px 20px;
+            background-color: rgb(255, 238, 0);
+            color: rgb(22, 22, 255);
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            border: 1px solid black;
+        }
+        .footer-link:hover {
+            background-color: rgb(167, 176, 255);
+        }
+        .container {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="Profile.jpg" alt="Profile Picture" class="profile-picture">
+        <h1>Welcome to My Website</h1>
+        <p>Hey everybody! I'm Omid Solatinejad. I'm happy to announce that I have made my first webiste ever! 
+I'll share more content here. Stay tuned!</p>
+        <p class="footer-text">Check out my LinkedIn</p>
+        <a href="https://www.linkedin.com/in/omid-solatinejad-ab112624a" class="footer-link">Click here!</a>
+    </div>
+</body>
+</html>
