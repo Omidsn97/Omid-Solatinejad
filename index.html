@@ -19,8 +19,7 @@
             border: 5px solid black;
             box-sizing: border-box;
             position: relative;
-            font-family: 'Times New Roman', Times, serif,
-sans-serif;
+            font-family: 'Times New Roman', Times, serif, sans-serif;
             background-color: #ffd0b0;
         }
         body::before {
@@ -34,10 +33,10 @@ sans-serif;
             pointer-events: none;
         }
         p {
-            font-size: 25px;
+            font-size: 1.25em;
             line-height: 1.5;
             margin: 0 auto;
-            width: 80%;
+            width: 90%;
             max-width: 1000px;
         }
         h1 {
@@ -46,7 +45,7 @@ sans-serif;
             border: 2px solid black;
             padding: 10px;
             display: inline-block;
-            font-size: 40px;
+            font-size: 2.5em;
         }
         .profile-picture {
            display: block;
@@ -54,8 +53,8 @@ sans-serif;
            top: 120px;
            left: 50%;
            transform: translateX(-50%);
-           width: 200px;   
-           height: 200px;
+           width: 150px;   
+           height: 150px;
            border-radius: 50%;
            border: 1px solid black;
         }
@@ -64,7 +63,7 @@ sans-serif;
             bottom: 75px;
             left: 50%;
             transform: translateX(-50%);
-            font-size: 16px;
+            font-size: 1em;
             color: black;
             font-weight: bold;
         }
@@ -79,7 +78,7 @@ sans-serif;
             color: rgb(22, 22, 255);
             text-decoration: none;
             border-radius: 5px;
-            font-size: 16px;
+            font-size: 1em;
             font-weight: bold;
             border: 1px solid black;
         }
@@ -88,7 +87,49 @@ sans-serif;
         }
         .container {
             text-align: center;
+            position: relative;
         }
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+                border-width: 2px;
+            }
+            .profile-picture {
+                width: 120px;
+                height: 120px;
+                top: 80px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            p {
+                font-size: 1em;
+                width: 95%;
+            }
+            .footer-text, .footer-link {
+                font-size: 0.9em;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            body {
+                padding: 5px;
+            }
+            .profile-picture {
+                width: 100px;
+                height: 100px;
+                top: 60px;
+            }
+            h1 {
+                font-size: 1.5em;
+            }
+            p {
+                font-size: 0.9em;
+            }
+            .footer-text, .footer-link {
+                font-size: 0.8em;
+            }
+        }    
     </style>
 </head>
 <body>
