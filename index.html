@@ -35,9 +35,10 @@
         p {
             font-size: 1.25em;
             line-height: 1.5;
-            margin: 0 auto;
-            width: 90%;
-            max-width: 1000px;
+            margin: 20px 0;
+            width: 100%;
+            max-width: 800px;
+            box-sizing: border-box;
         }
         h1 {
             color: rgb(0, 0, 0);
@@ -48,31 +49,19 @@
             font-size: 2.5em;
         }
         .profile-picture {
-           display: block;
-           position: absolute;
-           top: 120px;
-           left: 50%;
-           transform: translateX(-50%);
            width: 150px;   
            height: 150px;
            border-radius: 50%;
            border: 1px solid black;
+           margin-bottom: 20px;
         }
         .footer-text {
-            position: absolute;
-            bottom: 75px;
-            left: 50%;
-            transform: translateX(-50%);
             font-size: 1em;
             color: black;
             font-weight: bold;
+            margin: 10px 0;
         }
         .footer-link {
-            display: inline-block;
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
             padding: 10px 20px;
             background-color: rgb(255, 238, 0);
             color: rgb(22, 22, 255);
@@ -88,6 +77,17 @@
         .container {
             text-align: center;
             position: relative;
+            text-align: center;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            }
         }
         @media (max-width: 768px) {
             body {
@@ -97,7 +97,6 @@
             .profile-picture {
                 width: 120px;
                 height: 120px;
-                top: 80px;
             }
             h1 {
                 font-size: 2em;
@@ -118,13 +117,13 @@
             .profile-picture {
                 width: 100px;
                 height: 100px;
-                top: 60px;
             }
             h1 {
                 font-size: 1.5em;
             }
             p {
                 font-size: 0.9em;
+                max-width: 90%
             }
             .footer-text, .footer-link {
                 font-size: 0.8em;
