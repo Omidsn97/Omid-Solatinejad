@@ -39,6 +39,7 @@
             width: 100%;
             max-width: 800px;
             box-sizing: border-box;
+            text-align: justify;
         }
         h1 {
             color: rgb(0, 0, 0);
@@ -70,6 +71,7 @@
             font-size: 1em;
             font-weight: bold;
             border: 1px solid black;
+            margin: 10px;
         }
         .footer-link:hover {
             background-color: rgb(167, 176, 255);
@@ -87,13 +89,10 @@
             max-width: 1000px;
             margin: 0 auto;
             padding: 20px;
+            box-sizing: border-box;
             }
         }
         @media (max-width: 768px) {
-            body {
-                padding: 10px;
-                border-width: 2px;
-            }
             .profile-picture {
                 width: 120px;
                 height: 120px;
@@ -109,11 +108,7 @@
                 font-size: 0.9em;
             }
         }
-        
         @media (max-width: 480px) {
-            body {
-                padding: 5px;
-            }
             .profile-picture {
                 width: 100px;
                 height: 100px;
@@ -127,6 +122,16 @@
             }
             .footer-text, .footer-link {
                 font-size: 0.8em;
+        }
+        @media (min-width: 1024px) {
+           .profile-picture {
+                margin-top: 10px;
+            }
+           .footer-text {
+                margin-top: 20px;
+            }
+           .footer-link {
+                margin-top: 10px;
             }
         }    
     </style>
