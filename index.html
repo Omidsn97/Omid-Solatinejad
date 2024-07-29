@@ -15,8 +15,8 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            padding: 20px;
-            border: 5px solid black;
+            padding: 2vw;
+            border: 0.5vw solid black;
             box-sizing: border-box;
             position: relative;
             font-family: 'Times New Roman', Times, serif, sans-serif;
@@ -25,52 +25,56 @@
         body::before {
             content: '';
             position: absolute;
-            top: 20px;
-            right: 20px;
-            bottom: 20px;
-            left: 20px;
-            border: 2px solid black;
+            top: 2vw;
+            right: 2vw;
+            bottom: 2vw;
+            left: 2vw;
+            border: 0.2vw solid black;
             pointer-events: none;
         }
         p {
-            font-size: 1.25em;
-            line-height: 1.5;
-            margin: 20px auto;
+            font-size: 2.5vw;
+            line-height: 1.5em;
+            margin: 2vw auto;
             width: 90%;
-            max-width: 800px;
+            max-width: 90vw;
             box-sizing: border-box;
         }
         h1 {
             color: rgb(0, 0, 0);
             text-align: center;
-            border: 2px solid black;
-            padding: 10px;
+            border: 0.2vw solid black;
+            padding: 2vw;
             display: inline-block;
-            font-size: 2.5em;
+            font-size: 3vw;
         }
         .profile-picture {
-           width: 150px;   
-           height: 150px;
+           width: 15vw;   
+           height: 15vw;
            border-radius: 50%;
-           border: 1px solid black;
-           margin-bottom: 10px;
+           border: 0.2vw solid black;
+           margin-bottom: 2vw;
         }
         .footer-text {
-            font-size: 1em;
+            font-size: 2vw;
             color: black;
             font-weight: bold;
-            margin: 10px 0;
+            margin: 2vw 0;
+            max-width: 90%;
+            box-sizing: border-box;
         }
         .footer-link {
-            padding: 10px 20px;
+            padding: 1vw 2vw;
             background-color: rgb(255, 238, 0);
             color: rgb(22, 22, 255);
             text-decoration: none;
-            border-radius: 5px;
-            font-size: 1em;
+            border-radius: 0.5vw;
+            font-size: 2vw;
             font-weight: bold;
-            border: 1px solid black;
-            margin: 5px;
+            border: 0.2vw solid black;
+            margin: 1vw;
+            max-width: 100%;
+            box-sizing: border-box;
         }
         .footer-link:hover {
             background-color: rgb(167, 176, 255);
@@ -82,57 +86,95 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100%;
-            max-width: 1000px;
+            height: auto;
+            max-width: 90vw;
             margin: 0 auto;
-            padding: 20px;
+            padding: 2vw;
             box-sizing: border-box;
-            }
         }
         @media (max-width: 768px) {
             .profile-picture {
-                width: 120px;
-                height: 120px;
-                margin-bottom: 20px;
+                width: 30vw;
+                height: 30vw;
+                margin-bottom: 3vw;
             }
             h1 {
-                font-size: 2em;
+                font-size: 2.5vw;
+                padding: 1.5vw
             }
             p {
-                font-size: 1em;
-                max-width: 95%;
+                font-size: 3vw;
+                margin: 3vw;
+                max-width: 85vw;
             }
-            .footer-text, .footer-link {
-                font-size: 0.9em;
+            .footer-text {
+                font-size: 2.5vw;
+                margin: 3vw 0;
+                max-width: 85%;
+            }
+            .footer-link {
+                padding: 1.5vw 3vw;
+                font-size: 2.5vw;
+                border: 0.3vw solid black;
+                margin: 2vw;
+                max-width: 95%;
             }
         }
         @media (max-width: 480px) {
             .profile-picture {
-                width: 100px;
-                height: 100px;
-                margin-bottom: 15px;
+                width: 25vw;
+                height: 25vw;
+                margin-bottom: 4vw;
             }
-            h1 {
-                font-size: 1.5em;
+             h1 {
+                font-size: 2vw;
+                padding: 1vw;
+            } 
+             p {
+                font-size: 4vw;
+                margin: 4vw auto;
+                max-width: 80vw;
             }
-            p {
-                font-size: 0.9em;
-                max-width: 95%;
+            .footer-text {
+                font-size: 3vw;
+                margin: 4vw 0;
+                max-width: 80%;
             }
-            .footer-text, .footer-link {
-                font-size: 0.8em;
+            .footer-link {
+                padding: 2vw 4vw;
+                font-size: 3vw;
+                border: 0.4vw solid black;
+                margin: 3vw;
+              max-width: 90%;
             }
         }
         @media (min-width: 1024px) {
             .profile-picture {
-                margin-top: 10px;
+                width: 12vw;
+                height: 12vw;
+                margin-bottom: 2vw;
+            }
+             h1 {
+                font-size: 2.5vw;
+                padding: 1.5vw;
+            }
+             p {
+                font-size: 2vw;
+                margin: 2vw auto;
+                max-width: 90vw;
             }
             .footer-text {
-                margin-top: 20px;
-            }
+                font-size: 1.8vw;
+                margin: 2vw 0;
+                max-width: 90%;
+            } 
             .footer-link {
-                margin-top: 0;
-            }
+                padding: 1vw 2vw;
+                font-size: 2vw;
+                border: 0.2vw solid black;
+                margin: 1vw;
+                max-width: 100%;
+             }
         }    
     </style>
 </head>
