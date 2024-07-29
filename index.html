@@ -21,7 +21,7 @@
             position: relative;
             font-family: 'Times New Roman', Times, serif, sans-serif;
             background-color: #ffd0b0;
-            font-size: 1rem;
+            font-size: calc(1rem + 0.5vw);
         }
         body::before {
             content: '';
@@ -34,7 +34,7 @@
             pointer-events: none;
         }
         p {
-            font-size: 2.5vw;
+            font-size: calc(1rem + 0.5vw);
             line-height: 1.5em;
             margin: 2vw auto;
             width: 90%;
@@ -47,13 +47,10 @@
             border: 0.2vw solid black;
             padding: 2vw;
             display: inline-block;
-            font-size: 3vw;
+            font-size: calc(1rem + 0.5vw);
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-        }
-        h1, p, .footer-text, .footer-link {
-            font-size: calc(1rem + 1vw)
         }
         .profile-picture {
            width: 10vw;   
@@ -63,7 +60,7 @@
            margin-bottom: 1vw;
         }
         .footer-text {
-            font-size: 2vw;
+            font-size: calc(1rem + 0.5vw);
             color: black;
             font-weight: bold;
             margin: 0.5vw 0;
@@ -76,7 +73,7 @@
             color: rgb(22, 22, 255);
             text-decoration: none;
             border-radius: 0.5vw;
-            font-size: 2vw;
+            font-size: calc(1rem + 0.5vw);
             font-weight: bold;
             border: 0.2vw solid black;
             margin: 0.5vw 0;
@@ -110,23 +107,23 @@
                 margin-top: 1.5vw;
             }
             h1 {
-                font-size: 2.5rem;
+                font-size: calc(1.5rem + 0.5vw);
                 padding: 1vw;
             }
             p {
-                font-size: 1.5rem;
+                font-size: calc(1rem + 0.5vw);
                 margin: 1vw auto;
                 max-width: 80vw;
             }
             .footer-text {
-                font-size: 1rem;
+                font-size: calc(0.8rem + 0.3vw);
                 margin: 0.5vw 0;
                 max-width: 80%;
                 margin-bottom: 0.5vw;
             }
             .footer-link {
                 padding: 0.5vw 1.5vw;
-                font-size: 1.2rem;
+                font-size: calc(0.8rem + 0.3vw);
                 border: 0.1vw solid black;
                 margin: 0.5vw auto;
                 max-width: 80%;
@@ -170,23 +167,23 @@
                 margin-bottom: 0.2vw;
             }
              h1 {
-                font-size: 2rem;
+                font-size: calc(1.2rem + 0.5vw);
                 padding: 1vw;
             } 
              p {
-                font-size: 1.2rem;
+                font-size: calc(0.8rem + 0.5vw);
                 margin: 2vw auto;
                 max-width: 70vw;
             }
             .footer-text {
-                font-size: 0.8rem;
+                font-size: calc(0.6rem + 0.3vw);
                 margin: 1vw 0;
                 max-width: 70%;
                 margin-bottom: 0.2vw;
             }
             .footer-link {
                 padding: 1vw 2vw;
-                font-size: 1rem;
+                font-size: calc(0.6rem + 0.3vw);
                 border: 0.2vw solid black;
                 margin: 1vw auto;
                 max-width: 80%;
