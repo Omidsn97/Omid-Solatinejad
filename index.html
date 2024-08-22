@@ -23,10 +23,14 @@
     <meta property="og:description" content="This is a personal website of Omid Solatinejad showcasing his projects and interests.">
     <meta property="og:site_name" content="Omid Solatinejad">
     
-    <style>    
+    <style>  
+        html, body {
+            height: 100%;
+            margin: 0;
         body {
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+            justify-content: space-between;
             align-items: center;
             height: 100vh;
             margin: 0;
@@ -77,16 +81,14 @@
         .copyright {
            text-align: center;
            font-size: calc(0.8rem + 0.4vw);
-           margin-top: 2vw;
-           margin-bottom: 0;
+           margin: 0;
            color: #333;
            border-top: 0.1vw solid black;
            padding-top: 0.5vw;
            position: relative;
-           left: 50%;
-           transform: translateX(-50%);
-           width: calc(100% - 2vw);
+           width: 100%;
            box-sizing: border-box;
+           bottom: 0;
         }
         .profile-picture {
            width: 10vw;   
@@ -112,7 +114,7 @@
             font-size: calc(1rem + 0.5vw);
             font-weight: bold;
             border: 0.2vw solid black;
-            margin: 0.5vw 0;
+            margin: 0 0 2vw 0;
             max-width: 100%;
             box-sizing: border-box;
             white-space: nowrap;
@@ -123,6 +125,7 @@
             background-color: rgb(167, 176, 255);
         }
         .container {
+            flex: 1;
             text-align: center;
             position: relative;
             display: flex;
