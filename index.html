@@ -27,6 +27,7 @@
         html, body {
             height: 100%;
             margin: 0;
+        }
         body {
             display: flex;
             flex-direction: column;
@@ -138,6 +139,50 @@
             padding: 2vw;
             box-sizing: border-box;
         }
+        @media (max-width: 480px) {
+            .profile-picture {
+                width: 24vw;
+                height: 24vw;
+                margin-bottom: 0.2vw;
+            }
+            body {
+                font-size: calc(0.9rem + 0.3vw);
+            }
+            .logo {
+                width: 30vw;
+                height: 30vw;
+                margin-bottom: 1.5vw;
+            }
+            .copyright {
+                font-size: calc(0.4rem + 0.2vw) !important;
+                margin-top: 0.5vw;
+                margin-bottom: 0.5vw;
+                border-top: 0.1vw solid black;
+                width: 90vw;
+            }
+             h1 {
+                font-size: calc(1.2rem + 0.5vw);
+                padding: 1vw;
+            } 
+             p {
+                font-size: calc(0.8rem + 0.5vw);
+                margin: 2vw auto;
+                max-width: 70vw;
+            }
+            .footer-text {
+                font-size: calc(0.6rem + 0.3vw);
+                margin: 1vw 0;
+                max-width: 70%;
+                margin-bottom: 0.2vw;
+            }
+            .footer-link {
+                padding: 1vw 2vw;
+                font-size: calc(0.6rem + 0.3vw);
+                border: 0.2vw solid black;
+                margin: 1vw auto;
+                max-width: 80%;
+            }
+        } 
         @media (max-width: 768px) {
             .profile-picture {
                 width: 15vw;
@@ -224,50 +269,6 @@
                 max-width: 80%;
             }
         }     
-        @media (max-width: 480px) {
-            .profile-picture {
-                width: 24vw;
-                height: 24vw;
-                margin-bottom: 0.2vw;
-            }
-            body {
-                font-size: calc(0.9rem + 0.3vw);
-            }
-            .logo {
-                width: 30vw;
-                height: 30vw;
-                margin-bottom: 1.5vw;
-            }
-            .copyright {
-                font-size: calc(0.4rem + 0.2vw) !important;
-                margin-top: 0.5vw;
-                margin-bottom: 0.5vw;
-                border-top: 0.1vw solid black;
-                width: calc(100% - 5vw);
-            }
-             h1 {
-                font-size: calc(1.2rem + 0.5vw);
-                padding: 1vw;
-            } 
-             p {
-                font-size: calc(0.8rem + 0.5vw);
-                margin: 2vw auto;
-                max-width: 70vw;
-            }
-            .footer-text {
-                font-size: calc(0.6rem + 0.3vw);
-                margin: 1vw 0;
-                max-width: 70%;
-                margin-bottom: 0.2vw;
-            }
-            .footer-link {
-                padding: 1vw 2vw;
-                font-size: calc(0.6rem + 0.3vw);
-                border: 0.2vw solid black;
-                margin: 1vw auto;
-                max-width: 80%;
-            }
-        }
         @media (min-width: 1024px) {
             .profile-picture {
                 width: 9vw;
