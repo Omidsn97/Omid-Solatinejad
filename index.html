@@ -66,8 +66,11 @@
         body.dark-mode h1,
         body.dark-mode .footer-text,
         body.dark-mode .copyright,
-        body.dark-mode .footer-link {
+        body.dark-mode {
             color: white;
+        }
+        body.dark-mode:hover {
+            background-color: #f5e942;
         }
         p {
             font-size: calc(1rem + 0.5vw);
@@ -90,7 +93,7 @@
         }
         .logo {
             width: 12vw;
-            height: auto;
+            height: 12vw;
             max-width: 30%;
             border-radius: 10%;
             border: 0.3vw solid black;
@@ -98,7 +101,7 @@
         }
         .profile-picture {
            width: 10vw;   
-           height: auto;
+           height: 10vw;
            max-width: 20%;
            border-radius: 50%;
            border: 0.2vw solid black;
@@ -132,7 +135,7 @@
             background-color: rgb(167, 176, 255);
         }
         .copyright {
-           font-size: calc(2rem + 1vw);
+           font-size: calc(3rem + 1.5vw);
            text-align: center;
            margin: 0 auto;
            color: #333;
@@ -216,9 +219,9 @@
                 padding: 1vw;
             }
             .logo {
-            width: 18vw;
-            height: 18vw;
-            margin-bottom: 1.5vw;
+                width: 18vw;
+                height: 18vw;
+                margin-bottom: 1.5vw;
             }
             p {
                 font-size: calc(1rem + 0.5vw);
