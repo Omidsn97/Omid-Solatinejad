@@ -58,19 +58,22 @@
             top: 10vw;
             right: 10vw;
             z-index: 1000;
-            background-color: #ffffff; /* Initial background color of the button */
-            color: #000000; /* Text color of the button */
-            border: 0.2vw solid #000000; /* Border color of the button */
-            padding: 0.5vw 1vw; /* Button padding */
-            border-radius: 0.5vw; /* Rounded corners */
-            font-size: calc(1rem + 0.5vw); /* Font size */
-            cursor: pointer; /* Cursor style */
-            transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+            background-color: #ffffff;
+            color: #000000;
+            border: 0.2vw solid black;
+            padding: 0.5vw 1vw;
+            border-radius: 0.5vw;
+            font-size: calc(1rem + 0.5vw);
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
          }
+        #dark-mode-toggle:focus {
+            outline: none;
+        }
         #dark-mode-toggle:hover {
-            background-color: #f5e942; /* Light bulb color on hover */
-            color: #121212; /* Dark text color for contrast */
-            border-color: #f5e942; /* Border color matches the background */
+            background-color: #f5e942;
+            color: #121212;
+            border-color: #f5e942;
          }
         body.dark-mode {
             background-color: #1F1B24;
