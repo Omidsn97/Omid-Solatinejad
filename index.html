@@ -53,9 +53,22 @@
             border: 0.2vw solid black;
             pointer-events: none;
         }
+        #dark-mode-toggle {
+            position: fixed;
+            top: 10vw;
+            right: 10vw;
+            z-index: 1000;
+        }
         body.dark-mode {
             background-color: #121212;
             color: #e0e0e0;
+        }
+        body.dark-mode h1,
+        body.dark-mode .footer-text,
+        body.dark-mode .copyright,
+        body.dark-mode .footer-link {
+            color: white;
+        }
         p {
             font-size: calc(1rem + 0.5vw);
             line-height: 1.5em;
@@ -77,14 +90,16 @@
         }
         .logo {
             width: 12vw;
-            height: 12vw;
+            height: auto;
+            max-width: 30%;
             border-radius: 10%;
             border: 0.3vw solid black;
             margin-bottom: 1vw;
         }
         .profile-picture {
            width: 10vw;   
-           height: 10vw;
+           height: auto;
+           max-width: 20%;
            border-radius: 50%;
            border: 0.2vw solid black;
            margin-bottom: 1vw;
@@ -321,7 +336,7 @@
     </style>
 </head>
     <body>
-        <button id="dark-mode-toggle" style="position: fixed; top: 10vw; right: 10vw;">Toggle Dark Mode</button>
+        <button id="dark-mode-toggle">Dark Mode</button>
         <div class="container">
         <img src="Logo.jpg" alt="Logo of Omid Solatinejad" class="logo">
         <img src="Profile.jpg" alt="Photo of Omid Solatinejad" class="profile-picture">
