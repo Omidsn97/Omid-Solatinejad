@@ -71,14 +71,15 @@
             border-radius: 50%;
             padding: 0.5vw;
             cursor: pointer;
+            transition: background-color 0.2s, color 0.2s;
          }
         #dark-mode-toggle:focus {
             outline: none;
         }
         #dark-mode-toggle:hover {
-            background-color: #f5e942;
+            background-color: #FFA500;
             color: #121212;
-            border-color: #f5e942;
+            border-color: #000000;
         }
         #dark-mode-toggle i {
             pointer-events: none;
@@ -98,6 +99,16 @@
         body.dark-mode .copyright,
         body.dark-mode p {
             color: white;
+        }
+        body.dark-mode #dark-mode-toggle {
+            background-color: #f5e942;
+            color: #121212;
+            border-color: #0000FF;
+        }
+        body.dark-mode #dark-mode-toggle:hover {
+            background-color: #ffffff;
+            color: #121212;
+            border-color: #0000FF;
         }
         body.dark-mode h1 {
             border-color: white;
