@@ -55,7 +55,8 @@
             border: 0.2vw solid black;
             pointer-events: none;
         }
-        #dark-mode-toggle {
+                    <!-- Dark mode -->
+        #dark-mode-toggle:active {
             position: fixed;
             top: 5vw;
             right: 5vw;
@@ -71,14 +72,14 @@
             border-radius: 50%;
             padding: 0.5vw;
             cursor: pointer;
-         }
-        #dark-mode-toggle:focus {
-            outline: none;
         }
         #dark-mode-toggle:hover {
             background-color: #FFA500;
             color: #121212;
             border-color: #000000;
+        }
+        #dark-mode-toggle:focus {
+            outline: none;
         }
         #dark-mode-toggle i {
             pointer-events: none;
@@ -99,7 +100,7 @@
         body.dark-mode p {
             color: white;
         }
-        body.dark-mode #dark-mode-toggle {
+        body.dark-mode #dark-mode-toggle:active {
             background-color: #f5e942;
             color: #121212;
             border-color: #0000FF;
@@ -414,18 +415,21 @@ I'll share more content here. Stay tuned!</p>
              const body = document.body;
              const modeIcon = document.getElementById('mode-icon');
              const toggleButton = document.getElementById('dark-mode-toggle');
-                 
+    
              body.classList.toggle('dark-mode');
+    
              if (body.classList.contains('dark-mode')) {
              modeIcon.classList.remove('fa-moon');
              modeIcon.classList.add('fa-sun');
+             toggleButton.classList.remove('light-mode-hover');
+             toggleButton.classList.add('dark-mode-hover');
              } else {
              modeIcon.classList.remove('fa-sun');
              modeIcon.classList.add('fa-moon');
+             toggleButton.classList.remove('dark-mode-hover');
+             toggleButton.classList.add('light-mode-hover');
              }
-             document.getElementById('dark-mode-toggle').addEventListener('touchstart', function () {
-             this.classList.remove('hover');
-       });
+         });
       </script>
   </body>
 </html>
