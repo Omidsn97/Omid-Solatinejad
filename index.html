@@ -72,11 +72,6 @@
             padding: 0.5vw;
             cursor: pointer;
         }
-        #dark-mode-toggle:hover {
-            background-color: #FFA500;
-            color: #121212;
-            border-color: #000000;
-        }
         #dark-mode-toggle:focus {
             outline: none;
         }
@@ -99,13 +94,8 @@
         body.dark-mode p {
             color: white;
         }
-   <!--     body.dark-mode #dark-mode-toggle: {
-            background-color: #f5e942;
-            color: #121212;
-            border-color: #0000FF;
-        }    -->
-        body.dark-mode #dark-mode-toggle:hover {
-            background-color: #ffffff;
+        body.dark-mode #dark-mode-toggle {
+            background-color: #FFD700;
             color: #121212;
             border-color: #0000FF;
         }
@@ -413,20 +403,15 @@ I'll share more content here. Stay tuned!</p>
              document.getElementById('dark-mode-toggle').addEventListener('click', function () {
              const body = document.body;
              const modeIcon = document.getElementById('mode-icon');
-             const toggleButton = document.getElementById('dark-mode-toggle');
     
              body.classList.toggle('dark-mode');
     
              if (body.classList.contains('dark-mode')) {
              modeIcon.classList.remove('fa-moon');
              modeIcon.classList.add('fa-sun');
-             toggleButton.classList.remove('light-mode-hover');
-             toggleButton.classList.add('dark-mode-hover');
              } else {
              modeIcon.classList.remove('fa-sun');
              modeIcon.classList.add('fa-moon');
-             toggleButton.classList.remove('dark-mode-hover');
-             toggleButton.classList.add('light-mode-hover');
              }
          });
       </script>
