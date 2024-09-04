@@ -43,7 +43,6 @@
             position: relative;
             font-family: 'Times New Roman', Times, serif, sans-serif;
             background-color: #ffd0b0;
-            font-size: calc(1rem + 0.5vw);
         }
         body::before {
             content: '';
@@ -55,6 +54,7 @@
             border: 0.2vw solid black;
             pointer-events: none;
         }
+                      <!-- dark mode --->
         #dark-mode-toggle {
             position: fixed;
             top: 5vw;
@@ -126,6 +126,8 @@
         body.dark-mode .copyright {
             border-top: 0.1vw solid #e0e0e0;
         }
+
+              <!-- The end of dark mode -->
         p {
             font-size: calc(1rem + 0.5vw);
             line-height: 1.5em;
@@ -199,6 +201,17 @@
             margin: 0 auto;
             padding: 2vw;
             box-sizing: border-box;
+       .copyright {
+            font-size: 0.5px;
+            text-align: center;
+            margin: 0 auto;
+            color: #333;
+            border-top: 0.1vw solid black;
+            padding-top: 0.5vw;
+            width: 100%;
+            box-sizing: border-box;
+            bottom: 0;
+            position: relative;
         }
         @media (max-width: 480px) {
             .profile-picture {
