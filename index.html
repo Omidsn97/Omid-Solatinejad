@@ -21,7 +21,9 @@
     <meta property="og:image" content="https://omidsn97.github.io/Omid-Solatinejad/Profile.jpg">
     <meta property="og:description" content="This is a personal website of Omid Solatinejad showcasing his projects and interests.">
     <meta property="og:site_name" content="Omid Solatinejad">
-                <!-- CSS -->
+                <!-- Font Awesome library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+                 <!-- CSS -->
     <style>  
         html, body {
             margin: 0;
@@ -61,9 +63,9 @@
             background-color: #ffffff;
             color: #000000;
             border: 0.2vw solid black;
-            padding: 0.5vw 1vw;
-            border-radius: 0.5vw;
-            font-size: calc(1rem + 0.5vw);
+            padding: 1vw;
+            border-radius: 50%;
+            font-size: 2vw;
             cursor: pointer;
          }
         #dark-mode-toggle:focus {
@@ -73,6 +75,9 @@
             background-color: #f5e942;
             color: #121212;
             border-color: #f5e942;
+        }
+        #dark-mode-toggle i {
+            pointer-events: none;
         }
         body.dark-mode {
             background-color: #1F1B24;
@@ -370,7 +375,9 @@
     </style>
 </head>
     <body>
-        <button id="dark-mode-toggle">Dark Mode</button>
+        <button id="dark-mode-toggle">
+             <i id="mode-icon" class="fa-solid fa-sun"></i>
+        </button>
           <div class="container">
                  <img src="Logo.jpg" alt="Logo of Omid Solatinejad" class="logo">
                  <img src="Profile.jpg" alt="Photo of Omid Solatinejad" class="profile-picture">
@@ -386,19 +393,19 @@ I'll share more content here. Stay tuned!</p>
              <div class="copyright">
                  <p>&copy; 2024 Omid Solatinejad. All rights reserved. Unauthorized use of the content of this website and its logo will be prosecuted to the fullest extent of the law.</p>
          </div>
-      <script>
+       <script>
              document.getElementById('dark-mode-toggle').addEventListener('click', function () {
              const body = document.body;
-             const toggleButton = document.getElementById('dark-mode-toggle');
+             const modeIcon = document.getElementById('mode-icon');
              body.classList.toggle('dark-mode');
-             if (body.classList.contains('dark-mode')) { 
-             toggleButton.style.backgroundColor = '#ffffff'; // Set to white in dark mode
-             toggleButton.style.color = '#000000'; // Set text color in dark mode
+             if (body.classList.contains('dark-mode')) {
+             modeIcon.classList.remove('fa-sun');
+             modeIcon.classList.add('fa-moon');
              } else {
-             toggleButton.style.backgroundColor = '#ffffff'; // Revert to original in light mode
-             toggleButton.style.color = '#000000'; // Revert text color in light mode
+             modeIcon.classList.remove('fa-moon');
+             modeIcon.classList.add('fa-sun');
              }
-      });
+       });
       </script>
   </body>
 </html>
