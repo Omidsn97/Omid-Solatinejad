@@ -63,9 +63,11 @@
             background-color: #ffffff;
             color: #000000;
             border: 0.2vw solid black;
-            padding: 1vw;
+            width: 5vw;
+            height: 5vw;
+            display: flex;
             border-radius: 50%;
-            font-size: calc(0.8rem + 0.3vw);
+            font-size: calc(1rem + 0.5vw);
             cursor: pointer;
          }
         #dark-mode-toggle:focus {
@@ -78,6 +80,7 @@
         }
         #dark-mode-toggle i {
             pointer-events: none;
+            font-size: calc(0.8rem + 0.3vw);
         }
         body.dark-mode {
             background-color: #1F1B24;
