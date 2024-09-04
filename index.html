@@ -75,7 +75,7 @@
         #dark-mode-toggle:focus {
             outline: none;
         }
-        #dark-mode-toggle.light-mode-hover:hover {
+        #dark-mode-toggle:hover {
             background-color: #FFA500;
             color: #121212;
             border-color: #000000;
@@ -104,7 +104,7 @@
             color: #121212;
             border-color: #0000FF;
         }
-        body.dark-mode #dark-mode-toggle.dark-mode-hover:hover {
+        body.dark-mode #dark-mode-toggle:hover {
             background-color: #ffffff;
             color: #121212;
             border-color: #0000FF;
@@ -419,14 +419,12 @@ I'll share more content here. Stay tuned!</p>
              if (body.classList.contains('dark-mode')) {
              modeIcon.classList.remove('fa-moon');
              modeIcon.classList.add('fa-sun');
-             toggleButton.classList.remove('light-mode-hover');
-             toggleButton.classList.add('dark-mode-hover');
              } else {
              modeIcon.classList.remove('fa-sun');
              modeIcon.classList.add('fa-moon');
-             toggleButton.classList.remove('dark-mode-hover');
-             toggleButton.classList.add('light-mode-hover');
              }
+             document.getElementById('dark-mode-toggle').addEventListener('touchstart', function () {
+             this.classList.remove('hover');
        });
       </script>
   </body>
