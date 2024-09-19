@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Omid Solatinejad Personal Website - Translation and MBA</title>
+    <meta name="description" content="This is a personal website of Omid Solatinejad showcasing his projects and interests.">
+    <meta http-equiv="Content-Language" content="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+           <!-- Favicon sizes -->
+    <link rel="icon" type="image/png" sizes="16x16" href="Favicon16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="Favicon32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="Favicon192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="Favicon512.png">
+    <link rel="icon" type="image/x-icon" href="Favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="Appletouchicon.png">
+           <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Omid Solatinejad Personal Website - Translation and MBA">
+    <meta property="og:type" content="Website">
+    <meta property="og:url" content="https://omidsn97.github.io/Omid-Solatinejad/">
+    <meta property="og:image" content="https://omidsn97.github.io/Omid-Solatinejad/Logo.jpg">
+    <meta property="og:description" content="This is a personal website of Omid Solatinejad showcasing his projects and interests.">
+    <meta property="og:site_name" content="Omid Solatinejad">
+                <!-- Font Awesome library -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Font+Name:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+                 <!-- CSS -->
+    <style>  
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: auto;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            height: auto;
+            margin: 0;
+            padding: 2vw;
+            border: 0.5vw solid black;
+            box-sizing: border-box;
+            position: relative;
+            font-family: 'B Titr' , serif;
+            background-color: #ecfd9f;
+            font-size: calc(1rem + 0.5vw);
+        }
+        body::before {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0.5vw;
+            right: 0.5vw;
+            bottom: 0.5vw;
+            left: 0.5vw;
+            border: 0.2vw solid black;
+            box-sizing: border-box;
+            pointer-events: none;
+        }
+        #dark-mode-toggle {
+            position: absolute;
+            top: 4vw;
+            right: 4vw;
+            z-index: 1000;
+            background-color: #ffffff;
+            color: #000000;
+            border: 0.2vw solid black;
+            width: 9vw;
+            height: 9vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            padding: 0.5vw;
+            cursor: pointer;
+        }
+        #dark-mode-toggle:focus {
+            outline: none;
+        }
+        #dark-mode-toggle i {
+            pointer-events: none;
+            font-size: calc(1.2rem + 0.5vw);
+            padding: 0.5vw;
+        }
+        body.dark-mode {
+            background-color: #1F1B24;
+            color: #e0e0e0;
+            border-color: #e0e0e0;
+        }
+        body.dark-mode::before {
+            border-color: #e0e0e0;
+        }
+        body.dark-mode h1,
+        body.dark-mode .footer-text,
+        body.dark-mode div.copyright p,
+        body.dark-mode p {
+            color: white;
+        }
+        body.dark-mode #dark-mode-toggle {
+            position: absolute;
+            top: 4vw;
+            right: 4vw;
+            z-index: 1000;
+            background-color: #FFD700;
+            color: #121212;
+            border: 0.2vw solid white;
+            width: 9vw;
+            height: 9vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            padding: 0.5vw;
+            cursor: pointer;
+        }
+        body.dark-mode h1 {
+            border-color: white;
+        }
+        body.dark-mode .footer-link {
+            border-color: white;
+        }
+        body.dark-mode .logo {
+            border-color: #f5e942;
+        }
+        body.dark-mode .profile-picture {
+            border-color: #f5e942;
+        }
+        body.dark-mode .copyright {
+            border-top: 0.1vw solid #e0e0e0;
+        }
+        #section1 {
+            font-size: calc(1rem + 0.5vw);
+            font-family: 'B nazanin' , serif;
+            font-weight: bold;
+            line-height: 1.2em;
+            margin: 1vw auto;
+            width: 90%;
+            max-width: 90vw;
+            direction: rtl;
+            box-sizing: border-box;
+        }
+        ul {
+            font-size: calc(1rem + 0.5vw);
+            font-family: 'B Mitra' , serif;
+            font-weight: normal;
+            line-height: 1em;
+            text-align: justify;
+            margin: 0.2vw auto;
+            width: 60%;
+            max-width: 90vw;
+            direction: rtl;
+            box-sizing: border-box;
+        }
+        h1 {
+            color: rgb(0, 0, 0);
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            font-family: 'B Titr' , serif;
+            font-weight: normal;
+            margin: 1vw auto;
+            direction: rtl;
+            display: inline-block;
+            font-size: calc(2rem + 1vw);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        #section2 h2 {
+            color: rgb(0, 0, 0);
+            text-align: center;
+            font-family: 'B Titr' , serif;
+            font-weight: normal;
+            direction: rtl;
+            margin-top: 2vw;
+            margin-bottom: 0.5vw;
+            display: inline-block;
+            font-size: calc(1.2rem + 0.6vw);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        #section2 p {
+            font-size: calc(1rem + 0.5vw);
+            font-family: 'B Nazanin' , serif;
+            font-weight: normal;
+            line-height: 1em;
+            margin-top: 3vw;
+            margin-bottom: 0.1;
+            width: 90%;
+            font-weight: bold;
+            max-width: 90vw;
+            direction: rtl;
+            box-sizing: border-box;
+        }
+        aside {
+            font-size: calc(1rem + 0.5vw);
+            font-family: 'B Nazanin' , serif;
+            font-weight: normal;
+            line-height: 1em;
+            margin-top: 0.1vw;
+            margin-bottom: 1vw;
+            width: 90%;
+            max-width: 90vw;
+            font-weight: bold;
+            color: #770000;
+            direction: rtl;
+            box-sizing: border-box;
+        }
+        .logo {
+            width: 5vw;
+            height: 5vw;
+            position: absolute;
+            top: 4vw;
+            left: 4vw;
+            justify-content: center;
+            border-radius: 10%;
+            border: 0.1vw solid black;
+            margin-bottom: 1.8vw;
+        }
+        .profile-picture {
+           width: 10vw;   
+           height: 10vw;
+           justify-content: center;
+           border-radius: 50%;
+           border: 0.2vw solid black;
+           margin-bottom: 1vw;
+        }
+        .footer-text {
+            font-size: calc(1rem + 0.5vw);
+            color: black;
+            font-weight: bold;
+            margin: 0.5vw 0;
+            max-width: 90%;
+            box-sizing: border-box;
+        }
+        .footer-link {
+            padding: 1vw 2vw;
+            background-color: rgb(255, 238, 0);
+            color: rgb(22, 22, 255);
+            text-decoration: none;
+            border-radius: 0.5vw;
+            font-size: calc(1rem + 0.5vw);
+            font-weight: bold;
+            border: 0.2vw solid black;
+            margin: 0 0 2vw 0;
+            max-width: 100%;
+            box-sizing: border-box;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .footer-link:hover {
+            background-color: rgb(167, 176, 255);
+        }
+        .container {
+            flex: 1;
+            text-align: center;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: auto;
+            max-width: 90vw;
+            margin: 0 auto;
+            padding: 2vw;
+            box-sizing: border-box;
+        }
+       div.copyright p {
+            font-size: calc(1rem + 0.5vw);
+            font-family: 'Times New Roman', Times, serif;
+            text-align: center;
+            margin: 0 auto;
+            color: #333;
+            border-top: 0.1vw solid black;
+            padding: 0.5vw 0;
+            width: 95%;
+            max-width: 95%;
+            box-sizing: border-box;
+            bottom: 1;
+            direction: ltr;
+            position: relative;
+        }
+        @media (max-width: 480px) {
+            .profile-picture {
+                width: 24vw;
+                height: 24vw;
+                border-radius: 50%;
+                margin-bottom: 0.2vw;
+            }
+            body {
+                font-size: calc(0.9rem + 0.3vw);
+            }
+            .logo {
+                width: 30vw;
+                height: 30vw;
+                border-radius: 10%;
+                margin-bottom: 1.5vw;
+            }
+             h1 {
+                font-size: calc(1.2rem + 0.5vw);
+                padding: 1vw;
+            } 
+             p {
+                font-size: calc(0.8rem + 0.5vw);
+                margin: 2vw auto;
+                max-width: 70vw;
+            }
+            div.copyright p {
+                font-size: calc(0.4rem + 0.2vw);
+                margin-top: 0.8vw;
+                margin-bottom: 0.8vw;
+                border-top: 0.1vw solid black;
+                padding: 0.5vw 0;
+                max-width: 95%;
+            }
+            .footer-text {
+                font-size: calc(0.6rem + 0.3vw);
+                margin: 1vw 0;
+                max-width: 90%;
+                margin-bottom: 0.2vw;
+            }
+            .footer-link {
+                padding: 1vw 2vw;
+                font-size: calc(0.6rem + 0.3vw);
+                border: 0.2vw solid black;
+                margin: 1vw auto;
+                max-width: 80%;
+            }
+            #dark-mode-toggle i {
+                font-size: calc(1.8rem + 1vw);
+            }    
+             #dark-mode-toggle {
+                width: 8vw;
+                height: 8vw;
+            }
+            body.dark-mode #dark-mode-toggle {
+                width: 8vw;
+                height: 8vw;
+            }
+        } 
+        @media (min-width: 481px) and (max-width: 768px) {
+            .profile-picture {
+                width: 15vw;
+                height: 15vw;
+                margin-bottom: 0.2vw;
+                margin-top: 1.5vw;
+            }      
+            body {
+                font-size: calc(1.3rem + 0.7vw);
+            }        
+            h1 {
+                font-size: calc(1.5rem + 0.5vw);
+                padding: 1vw;
+            }
+            .logo {
+                width: 18vw;
+                height: 18vw;
+                margin-bottom: 1.5vw;
+            }
+            p {
+                font-size: calc(1rem + 0.5vw);
+                margin: 1vw auto;
+                max-width: 80vw;
+            }
+            div.copyright p {
+                font-size: calc(0.6rem + 0.2vw);
+                padding: 0.8vw 0;
+                bottom: 2vw;
+                width: calc(100% - 4vw);
+             }
+             #dark-mode-toggle i {
+                font-size: calc(1rem + 0.5vw);
+            }    
+             #dark-mode-toggle {
+                width: 6vw;
+                height: 6vw;
+            }
+            body.dark-mode #dark-mode-toggle {
+                width: 6vw;
+                height: 6vw
+            }
+            .footer-text {
+                font-size: calc(0.8rem + 0.3vw);
+                margin: 0.5vw 0;
+                max-width: 90%;
+                margin-bottom: 0.5vw;
+            }
+            .footer-link {
+                padding: 0.5vw 1.5vw;
+                font-size: calc(0.8rem + 0.3vw);
+                border: 0.1vw solid black;
+                margin: 0.5vw auto;
+                max-width: 80%;
+            }
+        }
+         @media (min-width: 769px) and (max-width: 1023px) {
+            .profile-picture {
+                width: 12vw;
+                height: 12vw;
+                margin-bottom: 0.1vw;
+                margin-top: 2vw;
+            }
+            .logo {
+            width: 14vw;
+            height: 14vw;
+            margin-bottom: 1.5vw;
+            }
+            div.copyright p {
+            font-size: calc(0.8rem + 0.4vw);
+            padding: 0.6vw 0;
+            bottom: 1.5vw;
+            width: calc(100% - 3vw);
+            }
+            h1 {
+                font-size: 3vw;
+                padding: 1vw;
+            }
+            p {
+                font-size: 2vw;
+                margin: 1vw auto;
+                max-width: 80vw;
+            }
+            #dark-mode-toggle i {
+                font-size: calc(1.2rem + 0.8vw);
+            }    
+             #dark-mode-toggle {
+                width: 5vw;
+                height: 5vw;
+            }
+            body.dark-mode #dark-mode-toggle {
+                width: 5vw;
+                height: 5vw;
+            }    
+            .footer-text {
+                font-size: 1.2vw;
+                margin: 0.5vw 0;
+                max-width: 90%;
+                margin-bottom: 0.5vw;
+            }
+            .footer-link {
+                padding: 0.5vw 1.5vw;
+                font-size: 1.5vw;
+                border: 0.1vw solid black;
+                margin: 0.5vw auto;
+                margin-bottom: 2vw;
+                max-width: 80%;
+            }
+        }     
+        @media (min-width: 1024px) {
+            .profile-picture {
+                width: 9vw;
+                height: 9vw;
+                margin-bottom: 0.1vw;
+                margin-top: 2vw;
+                justify-content: center;
+            }
+            header h1 {
+                font-size: 2.8vw;
+                padding: 0.5vw;
+                margin-top: 0.3vw;
+                margin-bottom: 0.1vw;
+            }
+            .logo {
+                width: 5vw;
+                height: 5vw;
+            }
+            div.copyright p {
+                font-size: calc(0.8rem + 0.4vw);
+                padding: 0.6vw 0;
+                bottom: 1.5vw;
+                width: calc(100% - 3vw);
+            }
+            p {
+                font-size: 1.8vw;
+                margin: 1vw auto;
+                margin-top: 0.1vw;
+                max-width: 80vw;
+            }
+            .footer-text {
+                font-size: 1vw;
+                margin: 0.5vw 0;
+                max-width: 90%;
+                margin-bottom: 0.2vw;
+            } 
+            .footer-link {
+                padding: 0.5vw 1vw;
+                font-size: 1.2vw;
+                border: 0.1vw solid black;
+                margin: 0.5vw auto;
+                margin-bottom: 2vw;
+                max-width: 90%;
+             }
+             #dark-mode-toggle i {
+                font-size: calc(1rem + 0.5vw);
+            }    
+             #dark-mode-toggle {
+                width: 4vw;
+                height: 4vw;
+            }
+            body.dark-mode #dark-mode-toggle {
+                width: 4vw;
+                height: 4vw;
+            }    
+    </style>
+</head>
+    <body>
+        <button id="dark-mode-toggle">
+             <i id="mode-icon" class="fa-solid fa-sun"></i>
+        </button>
+        <div class="container">
+                 <img src="Logo.jpg" alt="Logo of Omid Solatinejad" class="logo">
+                 <img src="Profile.jpg" alt="Photo of Omid Solatinejad" class="profile-picture">
+                 <h1>ترجمه امید</h1>
+
+            <section id="section1">
+                 <p>آیا مقالات دانشگاهی‌تان به دلیل ضعف زبان انگلیسی رد شده‌اند؟ آیا برای ترجمه سریع و دقیق وقت کافی ندارید و از خدمات کند و ناکارآمد موسسات ترجمه خسته شده‌اید؟ آیا هزینه‌های زیادی برای ترجمه پرداخت کرده‌اید، اما نتیجه‌ای که می‌خواستید را نگرفته‌اید؟</p>
+                 <p>ترجمه امید، راه‌حل شماست! من، امید صولتی‌نژاد، مترجم حرفه‌ای مقالات دانشگاهی هستم. با مدرک زبان از وزارت علوم و تحقیقات و کارشناسی ارشد مدیریت کسب و کار، تاکنون بیش از ۳۰ مقاله در حوزه‌های اقتصاد و مدیریت را برای دانشجویان دکتری و کارشناسی ارشد با موفقیت ترجمه کرده‌ام.</p>
+            </section>
+
+            <section id="section2">
+                 <h2>خدماتی که در ترجمه امید دریافت می‌کنید</h2>
+               <ul>
+                 <li>ترجمه فارسی به انگلیسی و انگلیسی به فارسی با دقت و کیفیت بالا</li>
+                 <li>ویرایش ساختاری متون برای تقویت بیان و انتقال صحیح مفاهیم</li>
+                 <li>کاهش سرقت ادبی (Plagiarism) و ارائه متنی منحصر‌به‌فرد</li>
+                 <li>ترجمه نیتیو توسط متخصصان زبان</li>
+                 <li>اصلاح کامل ایرادات گرامری و نگارشی با تضمین کیفیت</li>
+                 <li>ترجمه دقیق جداول، نمودارها، تصاویر و اشکال</li>
+                 <li>تحویل سریع‌تر از رقبا، پشتیبانی و اصلاح رایگان کامنت‌های داوران پس از ارسال مقاله به مجلات، و قیمت‌های مناسب دانشجویی از ویژگی‌های بارز ترجمه امید است.</li>
+               </ul>
+                 <p>به علاوه، برای آسودگی بیشتر، امکان پرداخت هزینه در دو مرحله (ابتدا و پایان کار) نیز فراهم است.</p>
+            </section>
+
+            <aside>
+                 <p>همین حالا کار خود را برای بررسی و شروع از طریق واتساپ یا تلگرام ارسال کنید: 09384995669</p>
+            </aside>
+                 <p class="footer-text">Connect with Omid Solatinejad on LinkedIn for expert translation, SEO, and digital marketing</p>
+                 <a href="https://www.linkedin.com/in/omid-solatinejad-ab112624a" class="footer-link">Omid Solatinejad LinkedIn</a>
+        </div>
+        <div class="copyright">
+                 <p>&copy; 2024 Omid Solatinejad. All rights reserved. Unauthorized use of the content of this website and its logo will be prosecuted to the fullest extent of the law.</p>
+        </div>
+        <script>
+             document.getElementById('dark-mode-toggle').addEventListener('click', function () {
+             const body = document.body;
+             const modeIcon = document.getElementById('mode-icon');
+    
+             body.classList.toggle('dark-mode');
+    
+             if (body.classList.contains('dark-mode')) {
+             modeIcon.classList.remove('fa-sun');
+             modeIcon.classList.add('fa-moon');
+             } else {
+             modeIcon.classList.remove('fa-moon');
+             modeIcon.classList.add('fa-sun');
+             }
+         });
+        </script>
+    </body>
+</html>
