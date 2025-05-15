@@ -1,6 +1,6 @@
 {
-    "name": "",
-    "short_name": "",
+    "name": "Omid Translation",
+    "short_name": "ترجمه امید",
     "icons": [
        {
           "src": "/Favicon192.png",
@@ -13,6 +13,7 @@
         "type": "image/png"
         }
     ],
+    "start_url": "/index.html",
     "theme_color": "#FFFFFF",
     "background_color": "#FFFFFF",
     "display": "standalone"
