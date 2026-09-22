@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl" data-lang="fa">
+<html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <title>امید صولتی نژاد | Omid Solatinejad</title>
@@ -211,17 +211,28 @@
   .icon-btn:hover { border-color: var(--accent); }
   .icon-btn svg { width: 1.1rem; height: 1.1rem; }
 
-  .lang-btn {
+  .lang-switch {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
     border: 1px solid var(--line);
-    background: transparent;
-    color: var(--ink);
     border-radius: 999px;
-    padding: 0.4rem 0.9rem;
-    font-size: 0.85rem;
-    cursor: pointer;
-    transition: border-color var(--dur) ease;
+    padding: 0.3rem 0.7rem;
   }
-  .lang-btn:hover { border-color: var(--accent); }
+  .lang-option {
+    border: none;
+    background: transparent;
+    color: var(--ink-soft);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    padding: 0.15rem 0.15rem;
+    transition: color var(--dur) ease;
+  }
+  .lang-option:hover { color: var(--ink); }
+  .lang-option[aria-pressed="true"] { color: var(--accent-strong); }
+  .lang-sep { color: var(--line); font-size: 0.8rem; }
 
   .menu-toggle { display: none; }
 
@@ -507,10 +518,11 @@
     </nav>
 
     <div class="header-controls">
-      <button class="lang-btn" id="lang-toggle" type="button" aria-label="تغییر زبان">
-        <span class="lang-fa">EN</span>
-        <span class="lang-en">فا</span>
-      </button>
+      <div class="lang-switch" role="group" aria-label="زبان / Language">
+        <button type="button" class="lang-option" id="lang-option-fa" data-lang-option="fa" aria-pressed="true">FA</button>
+        <span class="lang-sep" aria-hidden="true">|</span>
+        <button type="button" class="lang-option" id="lang-option-en" data-lang-option="en" aria-pressed="false">EN</button>
+      </div>
       <button class="icon-btn" id="theme-toggle" type="button" aria-pressed="false">
         <svg id="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
           <circle cx="12" cy="12" r="4.2"></circle>
@@ -809,17 +821,22 @@
   // ----- Language -----
   var savedLang = null;
   try { savedLang = localStorage.getItem(LANG_KEY); } catch (e) {}
+  var langFaBtn = document.getElementById("lang-option-fa");
+  var langEnBtn = document.getElementById("lang-option-en");
   function applyLang(lang) {
     root.setAttribute("lang", lang);
     root.setAttribute("dir", lang === "fa" ? "rtl" : "ltr");
-    document.body.setAttribute("data-lang", lang);
+    root.setAttribute("data-lang", lang);
+    langFaBtn.setAttribute("aria-pressed", lang === "fa" ? "true" : "false");
+    langEnBtn.setAttribute("aria-pressed", lang === "en" ? "true" : "false");
   }
   applyLang(savedLang === "en" ? "en" : "fa");
-  document.getElementById("lang-toggle").addEventListener("click", function () {
-    var next = document.body.getAttribute("data-lang") === "fa" ? "en" : "fa";
-    applyLang(next);
-    try { localStorage.setItem(LANG_KEY, next); } catch (e) {}
-  });
+  function switchLang(lang) {
+    applyLang(lang);
+    try { localStorage.setItem(LANG_KEY, lang); } catch (e) {}
+  }
+  langFaBtn.addEventListener("click", function () { switchLang("fa"); });
+  langEnBtn.addEventListener("click", function () { switchLang("en"); });
 
   // ----- Mobile nav -----
   var menuBtn = document.getElementById("menu-toggle");
