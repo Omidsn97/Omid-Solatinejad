@@ -25,11 +25,11 @@
 <meta name="twitter:image" content="https://omidsn97.github.io/Omid-Solatinejad/Profile.jpg">
 
 <!-- Favicons -->
-<link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
-<link rel="icon" type="image/svg+xml" href="favicon.svg" />
-<link rel="shortcut icon" href="favicon.ico" />
-<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
-<link rel="manifest" href="site.webmanifest" />
+<link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="shortcut icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
 <meta name="apple-mobile-web-app-title" content="OmidJournals">
 <link rel="mask-icon" href="safari-pinned-tab.svg" color="#2F6F5E">
 <meta name="msapplication-TileImage" content="mstile-144x144.png">
@@ -458,9 +458,11 @@
   }
   .profile-link:hover, .profile-link:focus-visible { color: var(--accent-strong); gap: 1.3rem; }
   .profile-link svg { width: 1.4rem; height: 1.4rem; flex-shrink: 0; color: var(--accent); }
-  .profile-link-text { display: flex; flex-direction: column; }
+  .profile-link-text { display: flex; flex-direction: column; gap: 0.15rem; }
   .profile-link-name { font-weight: 700; }
   .profile-link-url { font-size: 0.82rem; color: var(--ink-soft); word-break: break-word; }
+  a.profile-link-url { text-decoration: none; width: fit-content; }
+  a.profile-link-url:hover, a.profile-link-url:focus-visible { color: var(--accent-strong); text-decoration: underline; }
 
   .contact-panel {
     margin-top: 2rem;
@@ -753,6 +755,19 @@
             <span class="profile-link-url">instagram.com/omidjournals</span>
           </span>
         </a>
+      </li>
+      <li>
+        <div class="profile-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M4 7l8 6 8-6"></path></svg>
+          <span class="profile-link-text">
+            <span class="profile-link-name">
+              <span class="lang-fa">ایمیل</span>
+              <span class="lang-en">Email</span>
+            </span>
+            <a class="profile-link-url" href="mailto:omidsolati76@gmail.com">omidsolati76@gmail.com</a>
+            <a class="profile-link-url" href="mailto:omid.solati@semnan.ac.ir">omid.solati@semnan.ac.ir</a>
+          </span>
+        </div>
       </li>
     </ul>
   </section>
