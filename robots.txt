@@ -1,3 +1,4 @@
 User-agent: *
-Disallow:
-Sitemap: https://omidsn97.github.io/Omid-Solatinejad/sitemap.xml
+Allow: /
+
+Sitemap: https://omidsolatinejad.github.io/sitemap.xml
