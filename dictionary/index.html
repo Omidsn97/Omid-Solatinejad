@@ -9,7 +9,6 @@
 <meta name="color-scheme" content="light dark">
 <link rel="canonical" href="https://omidsolatinejad.github.io/dictionary/">
 
-<!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="دیکشنری انگلیسی | English Dictionary | Omid Solatinejad">
 <meta property="og:description" content="دیکشنری آنلاین انگلیسی امید جورنالز؛ جست‌وجوی رایگان تلفظ، معنی، مثال، مترادف و متضاد کلمات انگلیسی، همراه با معرفی دوره‌های آموزش زبان انگلیسی امید صولتی‌نژاد.">
@@ -18,13 +17,11 @@
 <meta property="og:site_name" content="OmidJournals">
 <meta property="og:locale" content="fa_IR">
 
-<!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="دیکشنری انگلیسی | English Dictionary | Omid Solatinejad">
 <meta name="twitter:description" content="جست‌وجوی رایگان تلفظ، معنی، مثال، مترادف و متضاد کلمات انگلیسی.">
 <meta name="twitter:image" content="https://omidsolatinejad.github.io/Profile.jpg">
 
-<!-- Favicons -->
 <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="shortcut icon" href="/favicon.ico">
@@ -41,10 +38,6 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap">
 
 <style>
-  /* ============================================================
-     SHARED SITE STYLES — kept identical to the homepage so this
-     page (and any future page) looks and behaves the same way.
-     ============================================================ */
   *, *::before, *::after { box-sizing: border-box; }
   html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
   @media (prefers-reduced-motion: reduce) {
@@ -202,9 +195,7 @@
 
   .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
 
-  /* ============================================================
-     DICTIONARY PAGE — page-specific styling
-     ============================================================ */
+  /* ============ DICTIONARY PAGE STYLES ============ */
   .dict-title { font-weight: 800; font-size: clamp(1.6rem, 2vw + 1rem, 2.3rem); margin: 0 0 0.6rem 0; }
 
   .search-form { margin: 1.75rem 0 2.25rem 0; }
@@ -343,7 +334,6 @@
 
 <main id="main">
 
-  <!-- SEARCH -->
   <section id="dictionary-tool" class="container">
     <h1 class="dict-title">
       <span class="lang-fa">دیکشنری انگلیسی امید جورنالز</span>
@@ -377,7 +367,6 @@
     </form>
   </section>
 
-  <!-- RESULTS -->
   <section id="dictionary-results" class="container">
     <div id="dict-status" class="state-message">
       <p>
@@ -388,7 +377,6 @@
     <div id="dict-result" class="word-card" hidden></div>
   </section>
 
-  <!-- ADVERTISEMENT -->
   <section id="dictionary-ad" class="container">
     <div class="ad-panel" dir="rtl" lang="fa">
       <h2 class="ad-heading">کلاس‌های آنلاین زبان انگلیسی با امید صولتی‌نژاد</h2>
@@ -404,7 +392,6 @@
     </div>
   </section>
 
-  <!-- PROFILES -->
   <section id="profiles" class="container">
     <h2 class="section-title">
       <span class="lang-fa">پروفایل‌های حرفه‌ای و علمی</span>
@@ -501,8 +488,6 @@
   var THEME_KEY = "omid-theme";
   var LANG_KEY = "omid-lang";
 
-  // ----- Element references (declared up front; any of these may be
-  // null on a given page, and nothing below may assume otherwise) -----
   var themeBtn = document.getElementById("theme-toggle");
   var langFaBtn = document.getElementById("lang-option-fa");
   var langEnBtn = document.getElementById("lang-option-en");
@@ -582,7 +567,9 @@
   if (yearEnEl) yearEnEl.textContent = y;
 
   // ============================================================
-  // DICTIONARY LOOKUP (Free Dictionary API — dictionaryapi.dev)
+  // DICTIONARY LOOKUP — Wiktionary API (wikimedia.org)
+  // Endpoint: https://en.wiktionary.org/api/rest_v1/page/definition/{word}
+  // Response shape: { "en": [ { partOfSpeech, language, definitions: [ { definition, parsedExamples, examples } ] }, ... ] }
   // ============================================================
   function updateDictPlaceholder() {
     if (!dictInput) return;
@@ -602,6 +589,15 @@
     });
   }
 
+  // Remove HTML tags returned by Wiktionary, then decode common entities.
+  function stripHtml(html) {
+    if (!html) return "";
+    var tmp = document.createElement("div");
+    tmp.innerHTML = html;
+    var text = tmp.textContent || tmp.innerText || "";
+    return text.replace(/\s+/g, " ").trim();
+  }
+
   function showStatus(html) {
     if (!statusEl || !resultEl) return;
     resultEl.hidden = true;
@@ -615,77 +611,49 @@
     statusEl.innerHTML = "";
   }
 
-  function renderResult(entry, fallbackWord) {
+  function renderResult(entries, word) {
     if (!resultEl) return;
     clearStatus();
     resultEl.hidden = false;
 
-    var word = entry.word || fallbackWord;
-    var phoneticText = entry.phonetic || "";
-    var audioUrl = "";
-    (entry.phonetics || []).forEach(function (p) {
-      if (!phoneticText && p.text) phoneticText = p.text;
-      if (!audioUrl && p.audio) audioUrl = p.audio;
-    });
-    if (audioUrl && audioUrl.indexOf("//") === 0) audioUrl = "https:" + audioUrl;
-
     var html = "";
     html += '<div class="word-head">';
     html += '<h2 class="word-title">' + escapeHtml(word) + "</h2>";
-    if (phoneticText) html += '<span class="word-phonetic">' + escapeHtml(phoneticText) + "</span>";
-    if (audioUrl) {
-      html += '<button type="button" class="icon-btn" id="dict-audio-btn">' +
-        '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 4V5L8 9H4Z"></path><path d="M16.5 9a4 4 0 0 1 0 6"></path></svg>' +
-        '<span class="visually-hidden">' + bi("پخش تلفظ", "Play pronunciation") + "</span>" +
-        "</button>";
-    }
     html += "</div>";
 
-    (entry.meanings || []).forEach(function (meaning) {
+    entries.forEach(function (block) {
+      var pos = block.partOfSpeech || "";
+      var defs = block.definitions || [];
+      if (!defs.length) return;
+
       html += '<div class="pos-block">';
-      html += '<span class="pos-label">' + escapeHtml(meaning.partOfSpeech || "") + "</span>";
+      if (pos) html += '<span class="pos-label">' + escapeHtml(pos) + "</span>";
       html += '<ol class="definitions-list">';
-      (meaning.definitions || []).forEach(function (def) {
-        html += "<li><p class=\"def-text\">" + escapeHtml(def.definition) + "</p>";
-        if (def.example) {
-          html += '<p class="def-example">\u201C' + escapeHtml(def.example) + '\u201D</p>';
+
+      defs.forEach(function (d) {
+        var defText = stripHtml(d.definition);
+        if (!defText) return;
+        html += '<li><p class="def-text">' + escapeHtml(defText) + "</p>";
+
+        // Examples may appear in parsedExamples or examples
+        var exampleText = "";
+        if (d.parsedExamples && d.parsedExamples.length) {
+          exampleText = stripHtml(d.parsedExamples[0].example);
+        } else if (d.examples && d.examples.length) {
+          exampleText = stripHtml(d.examples[0]);
+        }
+        if (exampleText) {
+          html += '<p class="def-example">\u201C' + escapeHtml(exampleText) + '\u201D</p>';
         }
         html += "</li>";
       });
-      html += "</ol>";
 
-      var syn = (meaning.synonyms || []).slice(0, 10);
-      var ant = (meaning.antonyms || []).slice(0, 10);
-      if (syn.length) {
-        html += '<div class="chip-row"><span class="chip-group-label">' + bi("مترادف‌ها:", "Synonyms:") + "</span>";
-        syn.forEach(function (s) { html += '<span class="chip">' + escapeHtml(s) + "</span>"; });
-        html += "</div>";
-      }
-      if (ant.length) {
-        html += '<div class="chip-row"><span class="chip-group-label">' + bi("متضادها:", "Antonyms:") + "</span>";
-        ant.forEach(function (a) { html += '<span class="chip">' + escapeHtml(a) + "</span>"; });
-        html += "</div>";
-      }
-      html += "</div>";
+      html += "</ol></div>";
     });
 
     resultEl.innerHTML = html;
-
-    if (audioUrl) {
-      var btn = document.getElementById("dict-audio-btn");
-      if (btn) {
-        var audio = new Audio(audioUrl);
-        btn.addEventListener("click", function () {
-          audio.currentTime = 0;
-          audio.play();
-        });
-      }
-    }
   }
 
-  // If any required piece of the dictionary UI is missing from the
-  // page, stop here — everything above (theme, language, mobile nav)
-  // has already been wired up regardless.
   if (!dictForm || !dictInput || !statusEl || !resultEl) return;
 
   updateDictPlaceholder();
@@ -701,15 +669,19 @@
       '<div class="spinner" aria-hidden="true"></div><p>' +
       bi("در حال جست‌وجو…", "Searching…") + "</p>"
     );
-    fetch("https://api.dictionaryapi.dev/api/v2/entries/en/" + encodeURIComponent(word))
+
+    fetch("https://en.wiktionary.org/api/rest_v1/page/definition/" + encodeURIComponent(word))
       .then(function (res) {
-        if (!res.ok) {
-          throw { kind: res.status === 404 ? "notfound" : "error" };
-        }
+        if (res.status === 404) throw { kind: "notfound" };
+        if (!res.ok) throw { kind: "error" };
         return res.json();
       })
       .then(function (data) {
-        renderResult(data[0], word);
+        var englishEntries = data && data.en;
+        if (!englishEntries || !englishEntries.length) {
+          throw { kind: "notfound" };
+        }
+        renderResult(englishEntries, word);
       })
       .catch(function (err) {
         console.error(err);
