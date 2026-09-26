@@ -114,7 +114,6 @@
   }
   .nav-row { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: 0.9rem; }
 
-  /* Brand: logo + text side by side */
   .brand {
     display: inline-flex;
     align-items: center;
@@ -170,10 +169,37 @@
   .menu-toggle { display: none; }
 
   @media (max-width: 760px) {
+    /* Mobile-only: make hamburger and lang-switch borders/icons clearly visible in light mode */
     .menu-toggle {
-      display: flex; width: 2.4rem; height: 2.4rem; border: 1px solid var(--line);
-      background: transparent; border-radius: 50%; align-items: center; justify-content: center; cursor: pointer;
+      display: flex; width: 2.4rem; height: 2.4rem;
+      border: 1.5px solid #4B564E; /* darker border for light mode */
+      background: var(--surface);
+      border-radius: 50%; align-items: center; justify-content: center; cursor: pointer;
+      color: #1F2A24; /* darker icon color */
+      transition: border-color var(--dur) ease, color var(--dur) ease, background var(--dur) ease;
     }
+    .menu-toggle:hover,
+    .menu-toggle:focus-visible {
+      border-color: var(--accent);
+      color: var(--accent-strong);
+    }
+
+    /* Darker borders + separator in light mode for the FA/EN switch */
+    .lang-switch {
+      border: 1.5px solid #4B564E;
+      background: var(--surface);
+    }
+    .lang-sep {
+      color: #4B564E; /* darker separator line */
+      font-weight: 700;
+    }
+    .lang-option {
+      color: #4B564E;
+    }
+    .lang-option[aria-pressed="true"] {
+      color: var(--accent-strong);
+    }
+
     nav.primary-nav {
       position: absolute; inset-inline: 0; top: 100%; background: var(--surface);
       border-bottom: 1px solid var(--line); max-height: 0; overflow: hidden; transition: max-height var(--dur) ease;
@@ -181,6 +207,34 @@
     nav.primary-nav.open { max-height: 24rem; }
     nav.primary-nav ul { flex-direction: column; padding: 0.5rem var(--pad) 1.25rem; gap: 0.25rem; }
     nav.primary-nav a { display: block; padding: 0.6rem 0.2rem; }
+  }
+
+  /* Dark mode overrides: restore original subtle look */
+  :root[data-theme="dark"] .menu-toggle,
+  :root[data-theme="dark"] .lang-switch {
+    border-color: var(--line);
+    color: var(--ink);
+  }
+  :root[data-theme="dark"] .lang-sep {
+    color: var(--line);
+    font-weight: 400;
+  }
+  :root[data-theme="dark"] .lang-option {
+    color: var(--ink-soft);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .menu-toggle,
+    :root:not([data-theme="light"]) .lang-switch {
+      border-color: var(--line);
+      color: var(--ink);
+    }
+    :root:not([data-theme="light"]) .lang-sep {
+      color: var(--line);
+      font-weight: 400;
+    }
+    :root:not([data-theme="light"]) .lang-option {
+      color: var(--ink-soft);
+    }
   }
 
   main > section { padding-block: 1.25rem; border-top: 1px solid var(--line); }
@@ -329,6 +383,19 @@
   .chip-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin-top: 0.75rem; }
   .chip-group-label { font-size: 0.82rem; color: var(--ink-soft); margin-inline-end: 0.2rem; }
   .chip { font-size: 0.82rem; padding: 0.25rem 0.75rem; border: 1px solid var(--line); border-radius: 999px; color: var(--ink-soft); }
+
+  /* ============================================================
+     MOBILE-ONLY: shrink placeholder font inside the search bar
+     ============================================================ */
+  @media (max-width: 760px) {
+    .search-input {
+      font-size: 0.85rem;
+      padding-block: 0.75rem;
+    }
+    .search-input::placeholder {
+      font-size: 0.8rem;
+    }
+  }
 </style>
 </head>
 <body>
