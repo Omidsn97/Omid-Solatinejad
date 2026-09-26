@@ -695,12 +695,11 @@
       bi("در حال جست‌وجو…", "Searching…") + "</p>"
     );
 
-    fetch("https://en.wiktionary.org/api/rest_v1/page/definition/" + encodeURIComponent(word))
-      .then(function (res) {
-        if (res.status === 404) throw { kind: "notfound" };
-        if (!res.ok) throw { kind: "error" };
-        return res.json();
-      })
+   fetch("https://en.wiktionary.org/api/rest_v1/page/definition/" + encodeURIComponent(word), {
+  headers: {
+    'User-Agent': 'OmidJournals-Dictionary/1.0 (https://omidsolatinejad.github.io/dictionary/)'
+  }
+})
       .then(function (data) {
         var englishEntries = data && data.en;
         if (!englishEntries || !englishEntries.length) {
