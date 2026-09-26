@@ -164,8 +164,11 @@
   main > section:first-of-type { border-top: none; padding-block: clamp(2rem, 5vw, 3rem); }
   main > section:last-of-type { border-bottom: none; }
 
-  /* Results section sits tightly under the search bar */
-  #dictionary-results { padding-block: 0 !important; border-top: none !important; }
+  /* Results section: close to search bar on top, normal gap below before ad */
+  #dictionary-results {
+    padding-block: 0 1.25rem !important;
+    border-top: none !important;
+  }
 
   h1.section-title, h2.section-title {
     font-size: clamp(1.5rem, 1.6vw + 1rem, 2.1rem); font-weight: 800; margin: 0 0 1.4rem 0; max-width: 32rem;
@@ -202,7 +205,7 @@
   /* ============ DICTIONARY PAGE STYLES ============ */
   .dict-title { font-weight: 800; font-size: clamp(1.6rem, 2vw + 1rem, 2.3rem); margin: 0 0 0.6rem 0; }
 
-  .search-form { margin: 1.75rem 0 0.25rem 0; }
+  .search-form { margin: 1.75rem 0 0.5rem 0; }
   .search-input-wrap {
     position: relative; display: flex; align-items: center;
     background: var(--surface); border: 1px solid var(--line); border-radius: 999px;
