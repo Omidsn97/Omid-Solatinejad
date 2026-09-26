@@ -2,32 +2,32 @@
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<title>دیکشنری انگلیسی | English Dictionary | Omid Solatinejad</title>
-<meta name="description" content="دیکشنری آنلاین انگلیسی امید جورنالز؛ جست‌وجوی رایگان تلفظ، معنی، مثال، مترادف و متضاد کلمات انگلیسی، همراه با معرفی دوره‌های آموزش زبان انگلیسی امید صولتی‌نژاد.">
+<title>امید جورنالز دیکشنری | OmidJournals Dictionary</title>
+<meta name="description" content="Comprehensive English dictionary with pronunciation, meanings, examples, synonyms, and antonyms. Online English classes with Omid Solatinejad — enroll via Telegram. دیکشنری جامع انگلیسی امید جورنالز؛ همراه با معرفی کلاس‌های آنلاین زبان انگلیسی امید صولتی‌نژاد.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="index, follow">
 <meta name="color-scheme" content="light dark">
 <link rel="canonical" href="https://omidsolatinejad.github.io/dictionary/">
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="دیکشنری انگلیسی | English Dictionary | Omid Solatinejad">
-<meta property="og:description" content="دیکشنری آنلاین انگلیسی امید جورنالز؛ جست‌وجوی رایگان تلفظ، معنی، مثال، مترادف و متضاد کلمات انگلیسی، همراه با معرفی دوره‌های آموزش زبان انگلیسی امید صولتی‌نژاد.">
+<meta property="og:title" content="امید جورنالز دیکشنری | OmidJournals Dictionary">
+<meta property="og:description" content="Comprehensive English dictionary with pronunciation, meanings, examples, synonyms, and antonyms. Online English classes with Omid Solatinejad — enroll via Telegram. دیکشنری جامع انگلیسی امید جورنالز؛ همراه با معرفی کلاس‌های آنلاین زبان انگلیسی امید صولتی‌نژاد.">
 <meta property="og:url" content="https://omidsolatinejad.github.io/dictionary/">
 <meta property="og:image" content="https://omidsolatinejad.github.io/Profile.jpg">
 <meta property="og:site_name" content="OmidJournals">
 <meta property="og:locale" content="fa_IR">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="دیکشنری انگلیسی | English Dictionary | Omid Solatinejad">
-<meta name="twitter:description" content="جست‌وجوی رایگان تلفظ، معنی، مثال، مترادف و متضاد کلمات انگلیسی.">
+<meta name="twitter:title" content="امید جورنالز دیکشنری | OmidJournals Dictionary">
+<meta name="twitter:description" content="Comprehensive English dictionary with pronunciation, meanings, examples, synonyms, and antonyms. Online English classes with Omid Solatinejad — enroll via Telegram.">
 <meta name="twitter:image" content="https://omidsolatinejad.github.io/Profile.jpg">
 
 <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="shortcut icon" href="/favicon.ico">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="manifest" href="/site.webmanifest">
-<meta name="apple-mobile-web-app-title" content="OmidJournals">
+<link rel="manifest" href="/dictionary/site.webmanifest">
+<meta name="apple-mobile-web-app-title" content="OmidJournals Dictionary">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#2F6F5E">
 <meta name="msapplication-TileImage" content="/mstile-144x144.png">
 <meta name="msapplication-TileColor" content="#2F6F5E">
@@ -182,7 +182,6 @@
   .cta-link.primary { color: var(--accent-strong); border-color: var(--accent); }
   .cta-link:hover, .cta-link:focus-visible { color: var(--accent); border-color: var(--accent); }
 
-  /* ===== Profiles: horizontal logo + name buttons ===== */
   .profile-list {
     list-style: none; margin: 0; padding: 0;
     display: flex; flex-wrap: wrap; gap: 0.75rem;
@@ -203,11 +202,9 @@
   .profile-link-name { font-weight: 700; font-size: 0.92rem; white-space: nowrap; }
   .profile-link-url, .profile-link-text { display: none; }
 
-  /* ===== Footer ===== */
   footer.site-footer { border-top: 1px solid var(--line); padding-block: 2rem; color: var(--ink-soft); font-size: 0.85rem; }
   .footer-row { display: flex; flex-wrap: wrap; gap: 0.75rem 1.5rem; justify-content: space-between; align-items: center; }
 
-  /* Modern circular back-to-top button */
   .back-to-top {
     display: inline-flex; align-items: center; justify-content: center;
     width: 2.75rem; height: 2.75rem;
@@ -228,7 +225,6 @@
 
   .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
 
-  /* ============ DICTIONARY PAGE STYLES ============ */
   .dict-title { font-weight: 800; font-size: clamp(1.6rem, 2vw + 1rem, 2.3rem); margin: 0 0 0.6rem 0; }
 
   .search-form { margin: 1.75rem 0 0 0; }
@@ -695,7 +691,6 @@
     resultEl.innerHTML = html;
   }
 
-  // Fetch with a hard timeout so mobile networks don't hang forever
   function fetchWithTimeout(url, ms) {
     return new Promise(function (resolve, reject) {
       var timer = setTimeout(function () {
