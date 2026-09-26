@@ -679,6 +679,24 @@
     resultEl.innerHTML = html;
   }
 
+  // Fetch with a hard timeout so mobile networks don't hang forever
+  function fetchWithTimeout(url, ms) {
+    return new Promise(function (resolve, reject) {
+      var timer = setTimeout(function () {
+        reject({ kind: "timeout" });
+      }, ms);
+      fetch(url)
+        .then(function (res) {
+          clearTimeout(timer);
+          resolve(res);
+        })
+        .catch(function (err) {
+          clearTimeout(timer);
+          reject(err);
+        });
+    });
+  }
+
   if (!dictForm || !dictInput || !statusEl || !resultEl) return;
 
   updateDictPlaceholder();
@@ -695,11 +713,14 @@
       bi("در حال جست‌وجو…", "Searching…") + "</p>"
     );
 
-   fetch("https://en.wiktionary.org/api/rest_v1/page/definition/" + encodeURIComponent(word), {
-  headers: {
-    'User-Agent': 'OmidJournals-Dictionary/1.0 (https://omidsolatinejad.github.io/dictionary/)'
-  }
-})
+    var endpoint = "https://en.wiktionary.org/api/rest_v1/page/definition/" + encodeURIComponent(word);
+
+    fetchWithTimeout(endpoint, 15000)
+      .then(function (res) {
+        if (res.status === 404) throw { kind: "notfound" };
+        if (!res.ok) throw { kind: "error" };
+        return res.json();
+      })
       .then(function (data) {
         var englishEntries = data && data.en;
         if (!englishEntries || !englishEntries.length) {
