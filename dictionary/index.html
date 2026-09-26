@@ -164,11 +164,7 @@
   main > section:first-of-type { border-top: none; padding-block: clamp(2rem, 5vw, 3rem); }
   main > section:last-of-type { border-bottom: none; }
 
-  /* Results section: close to search bar on top, normal gap below before ad */
-  #dictionary-results {
-    padding-block: 0 1.25rem !important;
-    border-top: none !important;
-  }
+  #dictionary-results { padding-block: 0 1.25rem !important; border-top: none !important; }
 
   h1.section-title, h2.section-title {
     font-size: clamp(1.5rem, 1.6vw + 1rem, 2.1rem); font-weight: 800; margin: 0 0 1.4rem 0; max-width: 32rem;
@@ -182,20 +178,27 @@
   .cta-link.primary { color: var(--accent-strong); border-color: var(--accent); }
   .cta-link:hover, .cta-link:focus-visible { color: var(--accent); border-color: var(--accent); }
 
-  .profile-list { list-style: none; margin: 0; padding: 0; }
-  .profile-list li { border-top: 1px solid var(--line); }
-  .profile-list li:last-child { border-bottom: 1px solid var(--line); }
-  .profile-link {
-    display: flex; align-items: center; gap: 1rem; padding: 1.1rem 0.25rem;
-    text-decoration: none; color: var(--ink); transition: color var(--dur) ease, gap var(--dur) ease;
+  /* ===== Profiles: horizontal logo + name buttons (URLs hidden) ===== */
+  .profile-list {
+    list-style: none; margin: 0; padding: 0;
+    display: flex; flex-wrap: wrap; gap: 0.75rem;
   }
-  .profile-link:hover, .profile-link:focus-visible { color: var(--accent-strong); gap: 1.3rem; }
-  .profile-link svg { width: 1.4rem; height: 1.4rem; flex-shrink: 0; color: var(--accent); }
-  .profile-link-text { display: flex; flex-direction: column; gap: 0.15rem; }
-  .profile-link-name { font-weight: 700; }
-  .profile-link-url { font-size: 0.82rem; color: var(--ink-soft); word-break: break-word; }
-  a.profile-link-url { text-decoration: none; width: fit-content; }
-  a.profile-link-url:hover, a.profile-link-url:focus-visible { color: var(--accent-strong); text-decoration: underline; }
+  .profile-list li { border: none; }
+  .profile-link {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    padding: 0.6rem 1.05rem;
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: 999px;
+    text-decoration: none; color: var(--ink);
+    transition: color var(--dur) ease, border-color var(--dur) ease, background var(--dur) ease, transform var(--dur) ease;
+  }
+  .profile-link:hover, .profile-link:focus-visible {
+    color: var(--accent-strong); border-color: var(--accent); background: var(--bg-alt);
+  }
+  .profile-link svg { width: 1.25rem; height: 1.25rem; flex-shrink: 0; color: var(--accent); }
+  .profile-link-name { font-weight: 700; font-size: 0.92rem; white-space: nowrap; }
+  /* Hide old URL text if it exists */
+  .profile-link-url, .profile-link-text { display: none; }
 
   footer.site-footer { border-top: 1px solid var(--line); padding-block: 2rem; color: var(--ink-soft); font-size: 0.85rem; }
   .footer-row { display: flex; flex-wrap: wrap; gap: 0.75rem 1.5rem; justify-content: space-between; align-items: center; }
@@ -442,64 +445,39 @@
 
     <ul class="profile-list">
       <li>
-        <a class="profile-link" href="https://www.linkedin.com/in/omid-solatinejad-ab112624a" target="_blank" rel="noopener noreferrer">
+        <a class="profile-link" href="https://www.linkedin.com/in/omid-solatinejad-ab112624a" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="3"></rect><line x1="7.5" y1="10" x2="7.5" y2="16.5"></line><circle cx="7.5" cy="7" r="0.9" fill="currentColor" stroke="none"></circle><path d="M11.5 16.5v-4a2.2 2.2 0 0 1 4.4 0v4"></path><line x1="11.5" y1="10" x2="11.5" y2="16.5"></line></svg>
-          <span class="profile-link-text">
-            <span class="profile-link-name">LinkedIn</span>
-            <span class="profile-link-url">linkedin.com/in/omid-solatinejad-ab112624a</span>
-          </span>
+          <span class="profile-link-name">LinkedIn</span>
         </a>
       </li>
       <li>
-        <a class="profile-link" href="https://orcid.org/0000-0002-1899-7510" target="_blank" rel="noopener noreferrer">
+        <a class="profile-link" href="https://orcid.org/0000-0002-1899-7510" target="_blank" rel="noopener noreferrer" aria-label="ORCID">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"></circle><circle cx="9" cy="8.3" r="0.9" fill="currentColor" stroke="none"></circle><line x1="9" y1="10.7" x2="9" y2="15.7"></line><path d="M12.2 10.7h1.6a2.5 2.5 0 0 1 0 5h-1.6v-5Z"></path></svg>
-          <span class="profile-link-text">
-            <span class="profile-link-name">ORCID</span>
-            <span class="profile-link-url">orcid.org/0000-0002-1899-7510</span>
-          </span>
+          <span class="profile-link-name">ORCID</span>
         </a>
       </li>
       <li>
-        <a class="profile-link" href="https://scholar.google.com/citations?hl=en&user=QxxCaU4AAAAJ" target="_blank" rel="noopener noreferrer">
+        <a class="profile-link" href="https://scholar.google.com/citations?hl=en&user=QxxCaU4AAAAJ" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 4 2.5 9.2 12 14.4l9.5-5.2Z" stroke-linejoin="round"></path><path d="M6 11.3v4.8c0 1.4 2.7 2.9 6 2.9s6-1.5 6-2.9v-4.8"></path></svg>
-          <span class="profile-link-text">
-            <span class="profile-link-name"><span class="lang-fa">گوگل اسکالر</span><span class="lang-en">Google Scholar</span></span>
-            <span class="profile-link-url">scholar.google.com</span>
-          </span>
+          <span class="profile-link-name"><span class="lang-fa">گوگل اسکالر</span><span class="lang-en">Google Scholar</span></span>
         </a>
       </li>
       <li>
-        <a class="profile-link" href="https://www.instagram.com/omidjournals" target="_blank" rel="noopener noreferrer">
+        <a class="profile-link" href="https://www.instagram.com/omidjournals" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="16.6" cy="7.4" r="0.9" fill="currentColor" stroke="none"></circle></svg>
-          <span class="profile-link-text">
-            <span class="profile-link-name">Instagram</span>
-            <span class="profile-link-url">instagram.com/omidjournals</span>
-          </span>
+          <span class="profile-link-name">Instagram</span>
         </a>
       </li>
       <li>
-        <div class="profile-link">
+        <a class="profile-link" href="mailto:omidsolati76@gmail.com" aria-label="Email">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M4 7l8 6 8-6"></path></svg>
-          <span class="profile-link-text">
-            <span class="profile-link-name">
-              <span class="lang-fa">ایمیل</span>
-              <span class="lang-en">Email</span>
-            </span>
-            <a class="profile-link-url" href="mailto:omidsolati76@gmail.com">omidsolati76@gmail.com</a>
-            <a class="profile-link-url" href="mailto:omid.solati@semnan.ac.ir">omid.solati@semnan.ac.ir</a>
-          </span>
-        </div>
+          <span class="profile-link-name"><span class="lang-fa">ایمیل</span><span class="lang-en">Email</span></span>
+        </a>
       </li>
       <li>
-        <a class="profile-link" href="https://t.me/OmidJournals" target="_blank" rel="noopener noreferrer">
+        <a class="profile-link" href="https://t.me/OmidJournals" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 12.5 20 4l-3 16-5.5-4.2L8.5 19l-.3-5Z" stroke-linejoin="round"></path><path d="M8.2 13.8 20 4"></path></svg>
-          <span class="profile-link-text">
-            <span class="profile-link-name">
-              <span class="lang-fa">کانال تلگرام</span>
-              <span class="lang-en">Telegram</span>
-            </span>
-            <span class="profile-link-url">t.me/OmidJournals</span>
-          </span>
+          <span class="profile-link-name"><span class="lang-fa">تلگرام</span><span class="lang-en">Telegram</span></span>
         </a>
       </li>
     </ul>
