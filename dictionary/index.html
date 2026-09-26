@@ -343,7 +343,7 @@
 
 <main id="main">
 
-  <!-- SEARCH + ADVERTISEMENT -->
+  <!-- SEARCH -->
   <section id="dictionary-tool" class="container">
     <h1 class="dict-title">
       <span class="lang-fa">دیکشنری انگلیسی امید جورنالز</span>
@@ -375,7 +375,21 @@
         </button>
       </div>
     </form>
+  </section>
 
+  <!-- RESULTS -->
+  <section id="dictionary-results" class="container">
+    <div id="dict-status" class="state-message">
+      <p>
+        <span class="lang-fa">یک کلمه انگلیسی برای جست‌وجو وارد کنید.</span>
+        <span class="lang-en">Type an English word to search.</span>
+      </p>
+    </div>
+    <div id="dict-result" class="word-card" hidden></div>
+  </section>
+
+  <!-- ADVERTISEMENT -->
+  <section id="dictionary-ad" class="container">
     <div class="ad-panel" dir="rtl" lang="fa">
       <h2 class="ad-heading">کلاس‌های آنلاین زبان انگلیسی با امید صولتی‌نژاد</h2>
       <p>اگر به دنبال یادگیری واقعی و کاربردی زبان انگلیسی هستید، دوره‌های آنلاین من مسیری روشن، ساختارمند و کاملاً متناسب با سطح و هدف شما ارائه می‌دهند. جلسات به‌صورت خصوصی یا گروهی برگزار می‌شود تا بهترین شکل یادگیری برای شرایط شما فراهم شود.</p>
@@ -388,17 +402,6 @@
       </ul>
       <a class="ad-cta" href="https://t.me/OmidJournals" target="_blank" rel="noopener noreferrer">برای ثبت‌نام و مشاوره کلیک کنید</a>
     </div>
-  </section>
-
-  <!-- RESULTS -->
-  <section id="dictionary-results" class="container">
-    <div id="dict-status" class="state-message">
-      <p>
-        <span class="lang-fa">یک کلمه انگلیسی برای جست‌وجو وارد کنید.</span>
-        <span class="lang-en">Type an English word to search.</span>
-      </p>
-    </div>
-    <div id="dict-result" class="word-card" hidden></div>
   </section>
 
   <!-- PROFILES -->
@@ -498,6 +501,20 @@
   var THEME_KEY = "omid-theme";
   var LANG_KEY = "omid-lang";
 
+  // ----- Element references (declared up front; any of these may be
+  // null on a given page, and nothing below may assume otherwise) -----
+  var themeBtn = document.getElementById("theme-toggle");
+  var langFaBtn = document.getElementById("lang-option-fa");
+  var langEnBtn = document.getElementById("lang-option-en");
+  var menuBtn = document.getElementById("menu-toggle");
+  var nav = document.getElementById("primary-nav");
+  var yearFaEl = document.getElementById("year-fa");
+  var yearEnEl = document.getElementById("year-en");
+  var dictForm = document.getElementById("dict-form");
+  var dictInput = document.getElementById("dict-input");
+  var statusEl = document.getElementById("dict-status");
+  var resultEl = document.getElementById("dict-result");
+
   // ----- Theme -----
   var savedTheme = null;
   try { savedTheme = localStorage.getItem(THEME_KEY); } catch (e) {}
@@ -509,77 +526,71 @@
     if (attr) return attr;
     return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
   }
-  var themeBtn = document.getElementById("theme-toggle");
-  themeBtn.setAttribute("aria-pressed", currentTheme() === "dark" ? "true" : "false");
-  themeBtn.addEventListener("click", function () {
-    var next = currentTheme() === "dark" ? "light" : "dark";
-    root.setAttribute("data-theme", next);
-    themeBtn.setAttribute("aria-pressed", next === "dark" ? "true" : "false");
-    try { localStorage.setItem(THEME_KEY, next); } catch (e) {}
-  });
+  if (themeBtn) {
+    themeBtn.setAttribute("aria-pressed", currentTheme() === "dark" ? "true" : "false");
+    themeBtn.addEventListener("click", function () {
+      var next = currentTheme() === "dark" ? "light" : "dark";
+      root.setAttribute("data-theme", next);
+      themeBtn.setAttribute("aria-pressed", next === "dark" ? "true" : "false");
+      try { localStorage.setItem(THEME_KEY, next); } catch (e) {}
+    });
+  }
 
   // ----- Language -----
   var savedLang = null;
   try { savedLang = localStorage.getItem(LANG_KEY); } catch (e) {}
-  var langFaBtn = document.getElementById("lang-option-fa");
-  var langEnBtn = document.getElementById("lang-option-en");
   function applyLang(lang) {
     root.setAttribute("lang", lang);
     root.setAttribute("dir", lang === "fa" ? "rtl" : "ltr");
     root.setAttribute("data-lang", lang);
-    langFaBtn.setAttribute("aria-pressed", lang === "fa" ? "true" : "false");
-    langEnBtn.setAttribute("aria-pressed", lang === "en" ? "true" : "false");
+    if (langFaBtn) langFaBtn.setAttribute("aria-pressed", lang === "fa" ? "true" : "false");
+    if (langEnBtn) langEnBtn.setAttribute("aria-pressed", lang === "en" ? "true" : "false");
     updateDictPlaceholder();
   }
-  applyLang(savedLang === "en" ? "en" : "fa");
   function switchLang(lang) {
     applyLang(lang);
     try { localStorage.setItem(LANG_KEY, lang); } catch (e) {}
   }
-  langFaBtn.addEventListener("click", function () { switchLang("fa"); });
-  langEnBtn.addEventListener("click", function () { switchLang("en"); });
+  if (langFaBtn) langFaBtn.addEventListener("click", function () { switchLang("fa"); });
+  if (langEnBtn) langEnBtn.addEventListener("click", function () { switchLang("en"); });
+  applyLang(savedLang === "en" ? "en" : "fa");
 
   // ----- Mobile nav -----
-  var menuBtn = document.getElementById("menu-toggle");
-  var nav = document.getElementById("primary-nav");
-  menuBtn.addEventListener("click", function () {
-    var open = nav.classList.toggle("open");
-    menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
-  });
-  nav.addEventListener("click", function (e) {
-    if (e.target.tagName === "A") {
-      nav.classList.remove("open");
-      menuBtn.setAttribute("aria-expanded", "false");
-    }
-  });
-  document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape" && nav.classList.contains("open")) {
-      nav.classList.remove("open");
-      menuBtn.setAttribute("aria-expanded", "false");
-      menuBtn.focus();
-    }
-  });
+  if (menuBtn && nav) {
+    menuBtn.addEventListener("click", function () {
+      var open = nav.classList.toggle("open");
+      menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+    nav.addEventListener("click", function (e) {
+      if (e.target.tagName === "A") {
+        nav.classList.remove("open");
+        menuBtn.setAttribute("aria-expanded", "false");
+      }
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && nav.classList.contains("open")) {
+        nav.classList.remove("open");
+        menuBtn.setAttribute("aria-expanded", "false");
+        menuBtn.focus();
+      }
+    });
+  }
 
   // ----- Year -----
   var y = new Date().getFullYear();
-  document.getElementById("year-fa").textContent = y;
-  document.getElementById("year-en").textContent = y;
+  if (yearFaEl) yearFaEl.textContent = y;
+  if (yearEnEl) yearEnEl.textContent = y;
 
   // ============================================================
   // DICTIONARY LOOKUP (Free Dictionary API — dictionaryapi.dev)
   // ============================================================
-  var dictForm = document.getElementById("dict-form");
-  var dictInput = document.getElementById("dict-input");
-  var statusEl = document.getElementById("dict-status");
-  var resultEl = document.getElementById("dict-result");
-
   function updateDictPlaceholder() {
+    if (!dictInput) return;
     var lang = root.getAttribute("lang") === "en" ? "en" : "fa";
     dictInput.placeholder = lang === "en"
       ? dictInput.getAttribute("data-placeholder-en")
       : dictInput.getAttribute("data-placeholder-fa");
   }
-  updateDictPlaceholder();
 
   function bi(fa, en) {
     return '<span class="lang-fa">' + fa + '</span><span class="lang-en">' + en + '</span>';
@@ -592,17 +603,20 @@
   }
 
   function showStatus(html) {
+    if (!statusEl || !resultEl) return;
     resultEl.hidden = true;
     resultEl.innerHTML = "";
     statusEl.hidden = false;
     statusEl.innerHTML = html;
   }
   function clearStatus() {
+    if (!statusEl) return;
     statusEl.hidden = true;
     statusEl.innerHTML = "";
   }
 
   function renderResult(entry, fallbackWord) {
+    if (!resultEl) return;
     clearStatus();
     resultEl.hidden = false;
 
@@ -659,13 +673,22 @@
 
     if (audioUrl) {
       var btn = document.getElementById("dict-audio-btn");
-      var audio = new Audio(audioUrl);
-      btn.addEventListener("click", function () {
-        audio.currentTime = 0;
-        audio.play();
-      });
+      if (btn) {
+        var audio = new Audio(audioUrl);
+        btn.addEventListener("click", function () {
+          audio.currentTime = 0;
+          audio.play();
+        });
+      }
     }
   }
+
+  // If any required piece of the dictionary UI is missing from the
+  // page, stop here — everything above (theme, language, mobile nav)
+  // has already been wired up regardless.
+  if (!dictForm || !dictInput || !statusEl || !resultEl) return;
+
+  updateDictPlaceholder();
 
   dictForm.addEventListener("submit", function (e) {
     e.preventDefault();
@@ -689,6 +712,7 @@
         renderResult(data[0], word);
       })
       .catch(function (err) {
+        console.error(err);
         if (err && err.kind === "notfound") {
           showStatus(
             '<svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="16" y1="16" x2="21" y2="21"></line><line x1="8.5" y1="8.5" x2="13.5" y2="13.5"></line><line x1="13.5" y1="8.5" x2="8.5" y2="13.5"></line></svg>' +
