@@ -188,7 +188,7 @@
 
 <div class="ep-wrap">
   <div id="ep-root"></div>
-</div>
+  </div>
 
 <script src="questions.js"></script>
 <script src="app.js"></script>
