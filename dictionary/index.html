@@ -164,10 +164,11 @@
   main > section:first-of-type { border-top: none; padding-block: clamp(2rem, 5vw, 3rem); }
   main > section:last-of-type { border-bottom: none; }
 
-  /* Results: tight on top (close to search bar), same bottom gap before ad */
+  /* Results: hugs the search bar above, same bottom gap before ad */
   #dictionary-results {
     padding-block: 0 1.25rem !important;
     border-top: none !important;
+    margin-top: -1rem;
   }
 
   h1.section-title, h2.section-title {
@@ -182,7 +183,7 @@
   .cta-link.primary { color: var(--accent-strong); border-color: var(--accent); }
   .cta-link:hover, .cta-link:focus-visible { color: var(--accent); border-color: var(--accent); }
 
-  /* ===== Profiles: horizontal logo + name buttons (URLs hidden) ===== */
+  /* ===== Profiles: horizontal logo + name buttons ===== */
   .profile-list {
     list-style: none; margin: 0; padding: 0;
     display: flex; flex-wrap: wrap; gap: 0.75rem;
@@ -211,8 +212,8 @@
   /* ============ DICTIONARY PAGE STYLES ============ */
   .dict-title { font-weight: 800; font-size: clamp(1.6rem, 2vw + 1rem, 2.3rem); margin: 0 0 0.6rem 0; }
 
-  /* Search form: tighter bottom margin so results sit close */
-  .search-form { margin: 1.75rem 0 0.1rem 0; }
+  /* Search form: no bottom margin, so results sit right under it */
+  .search-form { margin: 1.75rem 0 0 0; }
   .search-input-wrap {
     position: relative; display: flex; align-items: center;
     background: var(--surface); border: 1px solid var(--line); border-radius: 999px;
@@ -260,7 +261,7 @@
 
   .state-message {
     display: flex; flex-direction: column; align-items: center; gap: 0.75rem;
-    padding: 1rem; color: var(--ink-soft); text-align: center;
+    padding: 1rem 1rem 0 1rem; color: var(--ink-soft); text-align: center;
   }
   .state-message svg { color: var(--accent-2); }
   .spinner {
