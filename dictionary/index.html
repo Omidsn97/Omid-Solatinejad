@@ -582,24 +582,39 @@
   applyLang(savedLang === "en" ? "en" : "fa");
 
   // ----- Mobile nav -----
+  function closeNav() {
+    if (nav) nav.classList.remove("open");
+    if (menuBtn) menuBtn.setAttribute("aria-expanded", "false");
+  }
   if (menuBtn && nav) {
-    menuBtn.addEventListener("click", function () {
+    menuBtn.addEventListener("click", function (e) {
+      e.stopPropagation();
       var open = nav.classList.toggle("open");
       menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
     });
     nav.addEventListener("click", function (e) {
       if (e.target.tagName === "A") {
-        nav.classList.remove("open");
-        menuBtn.setAttribute("aria-expanded", "false");
+        closeNav();
+      } else {
+        e.stopPropagation();
       }
     });
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape" && nav.classList.contains("open")) {
-        nav.classList.remove("open");
-        menuBtn.setAttribute("aria-expanded", "false");
+        closeNav();
         menuBtn.focus();
       }
     });
+    // Close the nav when the user taps anywhere else on the page
+    document.addEventListener("click", function (e) {
+      if (!nav.classList.contains("open")) return;
+      if (nav.contains(e.target) || menuBtn.contains(e.target)) return;
+      closeNav();
+    });
+    // Also close on scroll (touch scroll counts as a user interaction)
+    window.addEventListener("scroll", function () {
+      if (nav.classList.contains("open")) closeNav();
+    }, { passive: true });
   }
 
   // ----- Year -----
