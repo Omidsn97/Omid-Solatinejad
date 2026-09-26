@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>پروفایل زبان انگلیسی | Omid Solatinejad</title>
+<meta name="description" content="آزمون ارزیابی رایگان زبان انگلیسی — دستور زبان، واژگان، درک مطلب، ارتباط کاربردی و طبیعی‌بودن زبان.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow">
+<meta name="color-scheme" content="light dark">
+<link rel="canonical" href="https://omidsolatinejad.github.io/english-test/">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap">
+
+<style>
+  /* ============================================================
+     Design tokens — copied from the main site so this page shares
+     the exact same palette, spacing and dark/light behavior.
+     ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; }
+  button { font: inherit; }
+
+  :root {
+    --bg: #F2EFE6;
+    --bg-alt: #E9E3D0;
+    --surface: #FBF9F3;
+    --ink: #1F2A24;
+    --ink-soft: #4B564E;
+    --accent: #2F6F5E;
+    --accent-strong: #1B4A3D;
+    --accent-2: #A97324;
+    --line: #D8D0B9;
+    --ring: #2F6F5E;
+    --radius-sm: 3px;
+    --radius-lg: 22px;
+    --maxw: 42rem;
+    --pad: clamp(1.25rem, 4vw, 3rem);
+    --dur: 200ms;
+  }
+  :root[data-theme="dark"] {
+    --bg: #141E19; --bg-alt: #1B2921; --surface: #182720; --ink: #ECE7D8;
+    --ink-soft: #AEB8AC; --accent: #74C4AB; --accent-strong: #9AD9C2;
+    --accent-2: #E0A94F; --line: #2A3A32; --ring: #74C4AB;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #141E19; --bg-alt: #1B2921; --surface: #182720; --ink: #ECE7D8;
+      --ink-soft: #AEB8AC; --accent: #74C4AB; --accent-strong: #9AD9C2;
+      --accent-2: #E0A94F; --line: #2A3A32; --ring: #74C4AB;
+    }
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Vazirmatn", "Segoe UI", Tahoma, sans-serif;
+    font-size: clamp(1rem, 0.35vw + 0.95rem, 1.125rem);
+    line-height: 1.75;
+    transition: background var(--dur) ease, color var(--dur) ease;
+    min-height: 100vh;
+  }
+
+  :focus-visible { outline: 2.5px solid var(--ring); outline-offset: 3px; border-radius: 2px; }
+
+  .ep-topbar {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1rem var(--pad); border-bottom: 1px solid var(--line);
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: saturate(140%) blur(10px);
+    position: sticky; top: 0; z-index: 10;
+  }
+  .ep-topbar a { color: var(--ink-soft); text-decoration: none; font-size: 0.9rem; }
+  .ep-topbar a:hover { color: var(--accent-strong); }
+  .ep-brand { font-weight: 700; color: var(--ink); }
+
+  .ep-wrap { max-width: var(--maxw); margin: 0 auto; padding: clamp(1.5rem, 5vw, 3rem) var(--pad) 4rem; }
+
+  .ep-screen { animation: ep-fade 220ms ease; }
+  @keyframes ep-fade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+  .ep-fa { direction: rtl; text-align: right; }
+  .ep-en { direction: ltr; text-align: left; }
+
+  .ep-title { font-size: clamp(1.6rem, 1.4vw + 1.1rem, 2.1rem); font-weight: 800; margin: 0 0 1.1rem 0; }
+  .ep-title-sm { font-size: clamp(1.3rem, 1vw + 1rem, 1.7rem); }
+  .ep-lede { color: var(--ink-soft); margin: 0 0 1.1rem 0; max-width: 40rem; }
+  .ep-subheading { font-size: 1.15rem; font-weight: 700; margin: 2rem 0 0.9rem 0; }
+
+  .ep-cta-row { display: flex; gap: 0.75rem; margin-top: 1.75rem; flex-wrap: wrap; }
+  .ep-btn {
+    border: 1px solid var(--line); border-radius: 999px; padding: 0.8rem 1.6rem;
+    font-weight: 700; cursor: pointer; text-decoration: none; display: inline-block;
+    transition: background var(--dur) ease, border-color var(--dur) ease, transform var(--dur) ease, opacity var(--dur) ease;
+    background: var(--surface); color: var(--ink);
+  }
+  .ep-btn:hover:not(:disabled) { border-color: var(--accent); transform: translateY(-1px); }
+  .ep-btn:disabled { opacity: 0.45; cursor: not-allowed; }
+  .ep-btn-primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .ep-btn-primary:hover:not(:disabled) { background: var(--accent-strong); border-color: var(--accent-strong); }
+  .ep-btn-ghost { background: transparent; }
+
+  .ep-info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; margin: 1.5rem 0; }
+  .ep-info-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 1rem 1.1rem; }
+  .ep-info-label { color: var(--ink-soft); font-size: 0.85rem; margin-bottom: 0.2rem; }
+  .ep-info-value { font-weight: 700; font-size: 1.15rem; }
+
+  .ep-construct-list { list-style: none; margin: 0 0 1.5rem 0; padding: 0; display: grid; gap: 0.55rem; }
+  .ep-construct-list li { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 0.65rem 0.9rem; }
+
+  .ep-notes { color: var(--ink-soft); padding-inline-start: 1.2rem; margin: 0 0 1rem 0; display: grid; gap: 0.5rem; }
+
+  /* Test screen (LTR) */
+  .ep-progress-wrap { margin-bottom: 1.5rem; }
+  .ep-progress-bar { height: 6px; background: var(--bg-alt); border-radius: 999px; overflow: hidden; }
+  .ep-progress-fill { height: 100%; background: var(--accent); transition: width var(--dur) ease; }
+  .ep-progress-label { color: var(--ink-soft); font-size: 0.85rem; margin-top: 0.5rem; }
+
+  .ep-construct-tag {
+    display: inline-block; background: var(--bg-alt); color: var(--accent-strong);
+    border-radius: 999px; padding: 0.3rem 0.85rem; font-size: 0.82rem; font-weight: 700; margin-bottom: 1.1rem;
+  }
+  .ep-question { font-size: 1.15rem; font-weight: 600; margin: 0 0 1.5rem 0; }
+
+  .ep-options { display: grid; gap: 0.65rem; margin-bottom: 2rem; }
+  .ep-option {
+    display: flex; align-items: flex-start; gap: 0.75rem; text-align: left;
+    background: var(--surface); border: 1.5px solid var(--line); border-radius: var(--radius-lg);
+    padding: 0.85rem 1.05rem; cursor: pointer; transition: border-color var(--dur) ease, background var(--dur) ease;
+    width: 100%; color: var(--ink);
+  }
+  .ep-option:hover { border-color: var(--accent); }
+  .ep-option-selected { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 12%, var(--surface)); }
+  .ep-option-letter {
+    flex-shrink: 0; width: 1.7rem; height: 1.7rem; border-radius: 50%; border: 1.5px solid var(--line);
+    display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem;
+  }
+  .ep-option-selected .ep-option-letter { border-color: var(--accent); color: var(--accent-strong); }
+
+  .ep-nav-row { display: flex; justify-content: space-between; gap: 1rem; }
+
+  /* Results screen */
+  .ep-result-hero { text-align: center; margin: 1.5rem 0 1.25rem 0; }
+  .ep-result-code { font-size: clamp(3.5rem, 10vw, 5.5rem); font-weight: 800; line-height: 1; color: var(--accent-strong); direction: ltr; }
+  .ep-result-label { margin-top: 0.4rem; display: flex; flex-direction: column; align-items: center; gap: 0.15rem; }
+  .ep-result-en { direction: ltr; font-weight: 700; font-size: 1.1rem; }
+  .ep-result-fa { color: var(--ink-soft); font-size: 0.95rem; }
+
+  .ep-construct-cards { display: grid; gap: 0.9rem; }
+  .ep-construct-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 1.1rem 1.25rem; }
+  .ep-construct-card-head { display: flex; justify-content: space-between; align-items: center; font-weight: 700; margin-bottom: 0.4rem; }
+  .ep-construct-score { direction: ltr; color: var(--ink-soft); font-weight: 700; }
+  .ep-construct-band {
+    display: inline-block; font-size: 0.8rem; font-weight: 700; padding: 0.2rem 0.7rem;
+    border-radius: 999px; margin-bottom: 0.6rem;
+  }
+  .ep-band-strong { background: color-mix(in srgb, var(--accent) 22%, var(--surface)); color: var(--accent-strong); }
+  .ep-band-developing { background: color-mix(in srgb, var(--accent-2) 22%, var(--surface)); color: var(--accent-2); }
+  .ep-band-needsAttention { background: color-mix(in srgb, #B4453A 20%, var(--surface)); color: #B4453A; }
+  :root[data-theme="dark"] .ep-band-needsAttention { color: #E38178; }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .ep-band-needsAttention { color: #E38178; }
+  }
+  .ep-construct-explain { color: var(--ink-soft); margin: 0; font-size: 0.95rem; }
+
+  .ep-cta-card {
+    margin-top: 2.25rem; background: var(--bg-alt); border: 1px solid var(--line);
+    border-radius: var(--radius-lg); padding: 1.5rem 1.5rem;
+  }
+  .ep-cta-question { font-weight: 700; font-size: 1.1rem; margin: 0 0 1rem 0; }
+  .ep-cta-steps { background: var(--surface); border: 1px dashed var(--line); border-radius: var(--radius-sm); padding: 0.9rem 1rem; margin: 0.5rem 0 1.25rem 0; color: var(--ink-soft); }
+  .ep-cta-btn { display: block; text-align: center; }
+
+  @media (min-width: 640px) {
+    .ep-nav-row { }
+  }
+</style>
+</head>
+<body>
+
+<div class="ep-topbar">
+  <span class="ep-brand">امید جورنالز</span>
+  <a href="../">&larr; بازگشت به صفحه اصلی</a>
+</div>
+
+<div class="ep-wrap">
+  <div id="ep-root"></div>
+</div>
+
+<script src="questions.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
