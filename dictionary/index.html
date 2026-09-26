@@ -160,8 +160,10 @@
     nav.primary-nav a { display: block; padding: 0.6rem 0.2rem; }
   }
 
-  main > section { padding-block: clamp(2.75rem, 6vw, 4.5rem); border-top: 1px solid var(--line); }
-  main > section:first-of-type { border-top: none; }
+  /* Reduced spacing on sections so results sit closer to the search bar */
+  main > section { padding-block: 1.25rem; border-top: 1px solid var(--line); }
+  main > section:first-of-type { border-top: none; padding-block: clamp(2rem, 5vw, 3rem); }
+  #dictionary-results { padding-block: 0.5rem 2rem; border-top: none; }
 
   h1.section-title, h2.section-title {
     font-size: clamp(1.5rem, 1.6vw + 1rem, 2.1rem); font-weight: 800; margin: 0 0 1.4rem 0; max-width: 32rem;
@@ -198,7 +200,7 @@
   /* ============ DICTIONARY PAGE STYLES ============ */
   .dict-title { font-weight: 800; font-size: clamp(1.6rem, 2vw + 1rem, 2.3rem); margin: 0 0 0.6rem 0; }
 
-  .search-form { margin: 1.75rem 0 2.25rem 0; }
+  .search-form { margin: 1.75rem 0 1rem 0; }
   .search-input-wrap {
     position: relative; display: flex; align-items: center;
     background: var(--surface); border: 1px solid var(--line); border-radius: 999px;
@@ -351,7 +353,7 @@
           <circle cx="10.5" cy="10.5" r="6.5"></circle>
           <line x1="15.5" y1="15.5" x2="21" y2="21"></line>
         </svg>
-              <input
+        <input
           type="text"
           id="dict-input"
           class="search-input"
