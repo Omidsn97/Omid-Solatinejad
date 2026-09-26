@@ -189,8 +189,22 @@
 
   @media (max-width: 760px) {
     .menu-toggle {
-      display: flex; width: 2.4rem; height: 2.4rem; border: 1px solid var(--line);
-      background: transparent; border-radius: 50%; align-items: center; justify-content: center; cursor: pointer;
+      display: flex; width: 2.4rem; height: 2.4rem;
+      border: 1px solid var(--line);
+      background: transparent;
+      border-radius: 50%;
+      align-items: center; justify-content: center;
+      cursor: pointer;
+      color: var(--ink);
+    }
+    /* Force the three hamburger lines to be dark in light mode on mobile */
+    html:not([data-theme="dark"]) .menu-toggle {
+      color: #1F2A24;
+    }
+    @media (prefers-color-scheme: dark) {
+      html:not([data-theme="light"]) .menu-toggle {
+        color: var(--ink);
+      }
     }
     nav.primary-nav {
       position: absolute; inset-inline: 0; top: 100%; background: var(--surface);
