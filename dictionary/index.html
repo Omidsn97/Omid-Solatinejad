@@ -378,17 +378,45 @@
   </section>
 
   <section id="dictionary-ad" class="container">
-    <div class="ad-panel" dir="rtl" lang="fa">
-      <h2 class="ad-heading">کلاس‌های آنلاین زبان انگلیسی با امید صولتی‌نژاد</h2>
-      <p>اگر به دنبال یادگیری واقعی و کاربردی زبان انگلیسی هستید، دوره‌های آنلاین من مسیری روشن، ساختارمند و کاملاً متناسب با سطح و هدف شما ارائه می‌دهند. جلسات به‌صورت خصوصی یا گروهی برگزار می‌شود تا بهترین شکل یادگیری برای شرایط شما فراهم شود.</p>
-      <p>چه در ابتدای مسیر یادگیری باشید، چه به دنبال تقویت انگلیسی برای موقعیت‌های تحصیلی و حرفه‌ای، همراهی یک مدرس با تجربه می‌تواند این مسیر را کوتاه‌تر و مطمئن‌تر کند.</p>
+    <div class="ad-panel">
+      <h2 class="ad-heading">
+        <span class="lang-fa">کلاس‌های آنلاین زبان انگلیسی با امید صولتی‌نژاد</span>
+        <span class="lang-en">Online English Classes with Omid Solatinejad</span>
+      </h2>
+
+      <p>
+        <span class="lang-fa">اگر به دنبال یادگیری واقعی و کاربردی زبان انگلیسی هستید، دوره‌های آنلاین من مسیری روشن، ساختارمند و کاملاً متناسب با سطح و هدف شما ارائه می‌دهند. جلسات به‌صورت خصوصی یا گروهی برگزار می‌شود تا بهترین شکل یادگیری برای شرایط شما فراهم شود.</span>
+        <span class="lang-en">If you're looking for real, practical English learning, my online courses offer a clear, structured path tailored to your level and goals. Sessions are held privately or in groups, so you get the learning format that fits you best.</span>
+      </p>
+
+      <p>
+        <span class="lang-fa">چه در ابتدای مسیر یادگیری باشید، چه به دنبال تقویت انگلیسی برای موقعیت‌های تحصیلی و حرفه‌ای، همراهی یک مدرس با تجربه می‌تواند این مسیر را کوتاه‌تر و مطمئن‌تر کند.</span>
+        <span class="lang-en">Whether you're just starting out or want to strengthen your English for academic and professional situations, working with an experienced teacher can make the path shorter and more certain.</span>
+      </p>
+
       <ul class="ad-list">
-        <li>جلسات آنلاین خصوصی یا گروهی، متناسب با برنامه شما</li>
-        <li>مسیر آموزشی ساختارمند و گام‌به‌گام</li>
-        <li>تمرکز بر انگلیسی عمومی، تحصیلی و حرفه‌ای</li>
-        <li>پیگیری مستمر پیشرفت و بازخورد شخصی</li>
+        <li>
+          <span class="lang-fa">جلسات آنلاین خصوصی یا گروهی، متناسب با برنامه شما</span>
+          <span class="lang-en">Private or group online sessions, fitted to your schedule</span>
+        </li>
+        <li>
+          <span class="lang-fa">مسیر آموزشی ساختارمند و گام‌به‌گام</span>
+          <span class="lang-en">A structured, step-by-step learning path</span>
+        </li>
+        <li>
+          <span class="lang-fa">تمرکز بر انگلیسی عمومی، تحصیلی و حرفه‌ای</span>
+          <span class="lang-en">Focus on general, academic, and professional English</span>
+        </li>
+        <li>
+          <span class="lang-fa">پیگیری مستمر پیشرفت و بازخورد شخصی</span>
+          <span class="lang-en">Continuous progress tracking and personal feedback</span>
+        </li>
       </ul>
-      <a class="ad-cta" href="https://t.me/OmidJournals" target="_blank" rel="noopener noreferrer">برای ثبت‌نام و مشاوره کلیک کنید</a>
+
+      <a class="ad-cta" href="https://t.me/OmidJournals" target="_blank" rel="noopener noreferrer">
+        <span class="lang-fa">برای ثبت‌نام و مشاوره کلیک کنید</span>
+        <span class="lang-en">Click to enroll or get a consultation</span>
+      </a>
     </div>
   </section>
 
@@ -568,8 +596,6 @@
 
   // ============================================================
   // DICTIONARY LOOKUP — Wiktionary API (wikimedia.org)
-  // Endpoint: https://en.wiktionary.org/api/rest_v1/page/definition/{word}
-  // Response shape: { "en": [ { partOfSpeech, language, definitions: [ { definition, parsedExamples, examples } ] }, ... ] }
   // ============================================================
   function updateDictPlaceholder() {
     if (!dictInput) return;
@@ -589,7 +615,6 @@
     });
   }
 
-  // Remove HTML tags returned by Wiktionary, then decode common entities.
   function stripHtml(html) {
     if (!html) return "";
     var tmp = document.createElement("div");
@@ -635,7 +660,6 @@
         if (!defText) return;
         html += '<li><p class="def-text">' + escapeHtml(defText) + "</p>";
 
-        // Examples may appear in parsedExamples or examples
         var exampleText = "";
         if (d.parsedExamples && d.parsedExamples.length) {
           exampleText = stripHtml(d.parsedExamples[0].example);
