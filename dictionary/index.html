@@ -160,10 +160,12 @@
     nav.primary-nav a { display: block; padding: 0.6rem 0.2rem; }
   }
 
-  /* Reduced spacing on sections so results sit closer to the search bar */
   main > section { padding-block: 1.25rem; border-top: 1px solid var(--line); }
   main > section:first-of-type { border-top: none; padding-block: clamp(2rem, 5vw, 3rem); }
-  #dictionary-results { padding-block: 0.5rem 2rem; border-top: none; }
+  main > section:last-of-type { border-bottom: none; }
+
+  /* Results section sits tightly under the search bar */
+  #dictionary-results { padding-block: 0 !important; border-top: none !important; }
 
   h1.section-title, h2.section-title {
     font-size: clamp(1.5rem, 1.6vw + 1rem, 2.1rem); font-weight: 800; margin: 0 0 1.4rem 0; max-width: 32rem;
@@ -200,7 +202,7 @@
   /* ============ DICTIONARY PAGE STYLES ============ */
   .dict-title { font-weight: 800; font-size: clamp(1.6rem, 2vw + 1rem, 2.3rem); margin: 0 0 0.6rem 0; }
 
-  .search-form { margin: 1.75rem 0 1rem 0; }
+  .search-form { margin: 1.75rem 0 0.25rem 0; }
   .search-input-wrap {
     position: relative; display: flex; align-items: center;
     background: var(--surface); border: 1px solid var(--line); border-radius: 999px;
@@ -248,7 +250,7 @@
 
   .state-message {
     display: flex; flex-direction: column; align-items: center; gap: 0.75rem;
-    padding: 2.5rem 1rem; color: var(--ink-soft); text-align: center;
+    padding: 1rem; color: var(--ink-soft); text-align: center;
   }
   .state-message svg { color: var(--accent-2); }
   .spinner {
@@ -258,12 +260,12 @@
   }
   @keyframes dict-spin { to { transform: rotate(360deg); } }
 
-  .word-head { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1.25rem; margin-bottom: 0.25rem; }
+  .word-head { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1.25rem; margin: 0; }
   .word-title { font-size: clamp(1.8rem, 2.5vw + 1rem, 2.6rem); font-weight: 800; margin: 0; }
   .word-phonetic { color: var(--ink-soft); font-size: 1.05rem; }
 
   .pos-block { border-top: 1px solid var(--line); padding-block: 1.5rem; }
-  .pos-block:first-of-type { margin-top: 1.5rem; }
+  .pos-block:first-of-type { margin-top: 1rem; }
   .pos-label {
     display: inline-block; font-weight: 700; color: var(--accent-strong); background: var(--bg-alt);
     padding: 0.25rem 0.9rem; border-radius: 999px; font-size: 0.85rem; margin-bottom: 0.9rem;
