@@ -329,7 +329,6 @@
         <li><a href="/#research"><span class="lang-fa">پژوهش</span><span class="lang-en">Research</span></a></li>
         <li><a href="/dictionary/" aria-current="page"><span class="lang-fa">دیکشنری</span><span class="lang-en">Dictionary</span></a></li>
         <li><a href="/#profiles"><span class="lang-fa">پروفایل‌ها</span><span class="lang-en">Profiles</span></a></li>
-        <li><a href="/#contact"><span class="lang-fa">ارتباط با من</span><span class="lang-en">Contact</span></a></li>
       </ul>
     </nav>
 
@@ -605,13 +604,11 @@
         menuBtn.focus();
       }
     });
-    // Close the nav when the user taps anywhere else on the page
     document.addEventListener("click", function (e) {
       if (!nav.classList.contains("open")) return;
       if (nav.contains(e.target) || menuBtn.contains(e.target)) return;
       closeNav();
     });
-    // Also close on scroll (touch scroll counts as a user interaction)
     window.addEventListener("scroll", function () {
       if (nav.classList.contains("open")) closeNav();
     }, { passive: true });
